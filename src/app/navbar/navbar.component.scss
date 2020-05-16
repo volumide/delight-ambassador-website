@@ -1,0 +1,17 @@
+.container{
+	display: flex;
+	justify-content: space-around;
+}
+
+
+li{
+	--primary-color :rgb(220,20,60);
+	font-weight: 800;
+	color: var(--primary-color);
+	padding: 0;
+	cursor: pointer;
+}
+
+.active{
+	color: var(--text-color);
+}

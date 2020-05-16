@@ -1,0 +1,22 @@
+//slider
+.slider{
+	margin-top: 10px;
+	height: 300px;
+	// width: 100%;
+	position: relative;
+	background: linear-gradient(to right,var(--primary-color), rgba(138, 138, 138, 0.4) ) , url(https://media.istockphoto.com/photos/multiracial-friends-using-smartphone-against-wall-at-university-picture-id1092747784?k=6&m=1092747784&s=612x612&w=0&h=MvjZ_TBvpSt_bYWRyH4CcvItBfo_yt37qcn_7XEAJfg=);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: right;
+}
+
+.container{
+	
+}
+
+.welcome-container{
+	color: var(--text-color);
+}
+
+
+
