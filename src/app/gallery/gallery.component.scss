@@ -1,0 +1,27 @@
+.container{
+	// padding: 10px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	// width: 1200px;
+	max-width: 95%;
+}
+ 
+.img{
+	margin: 3px 3px 10px;
+}
+
+.img-container{
+	position: relative;
+	width: 200px;
+	height: 200px;
+	background: var(--text-color);
+	border-radius: 5px;
+}
+
+@media (max-width:799px){
+	.img-container{
+		width: 250px;
+		height: 250px;
+	}
+}

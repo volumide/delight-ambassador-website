@@ -15,3 +15,15 @@ li{
 .active{
 	color: var(--text-color);
 }
+
+.logo{
+	position: relative;
+	width: 70px;
+	height: 70px;
+}
+
+.active{
+	outline: none;
+	color: var(--text-color);
+	font-weight: lighter;
+}

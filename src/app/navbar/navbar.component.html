@@ -1,10 +1,12 @@
 <div class="navigation">
 	<div class="container">
-		<p>LOGO</p>
+		<div class="logo">
+			<img src="../assets/delightlogo.jpeg" alt="" srcset="">
+		</div>
 		<ul>
-			<li [routerLink]="['/']" routerLinkActive="router-link-active" >Home</li>
-			<li [routerLink]="['/about']" routerLinkActive="router-link-active" >About</li>
-			<li>Gallery</li>
+			<li [routerLink]="['/home']" routerLinkActive="active" >Home</li>
+			<li [routerLink]="['/about']" routerLinkActive="active" >About</li>
+			<li [routerLink]="['/gallery']" routerLinkActive="active" >Gallery</li>
 			<li>Teams</li>
 		</ul>
 	</div>
