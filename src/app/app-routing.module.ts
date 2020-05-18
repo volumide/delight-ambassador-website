@@ -7,6 +7,7 @@ import { AboutComponent } from './about/about.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogDetailsComponent } from './blog-details/blog-details.component';
+import { HashLocationStrategy } from '@angular/common';
 
 
 const routes: Routes = [
@@ -18,11 +19,11 @@ const routes: Routes = [
   { path: 'gallery', component: GalleryComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'blog/content', component: BlogDetailsComponent },
-  
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: true})],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+  providers: [{provide: localStorage, useClass:HashLocationStrategy}],
 })
 export class AppRoutingModule { }
