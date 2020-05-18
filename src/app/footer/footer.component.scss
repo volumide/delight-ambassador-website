@@ -13,10 +13,16 @@ p{
 
 .container{
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-evenly;
 }
 
 a{
 	color: var(--text-color);
 	text-decoration: underline;
+}
+
+@media(max-width: 799px){
+	.container{
+		padding: 0;
+	}
 }

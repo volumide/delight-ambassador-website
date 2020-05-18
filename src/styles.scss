@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,800;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
 
 *{
 	// border: solid 1px grey;
@@ -52,6 +55,26 @@ img{
 
 li{
 	padding: 3px 0 ;
+	font-family: 'PT Sans', sans-serif;
+}
+p{
+	font-family: 'PT Sans', sans-serif;
 }
 
+i{
+	color: var(--header-color) ;
+}
+
+@media screen and(min-width: 799px){
+	i{
+		display: none;
+		
+	}
+}
+
+@media screen and(max-width:799px){
+	.img{
+		display: none;
+	}
+}
 
