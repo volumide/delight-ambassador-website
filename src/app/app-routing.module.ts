@@ -5,6 +5,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { BlogComponent } from './blog/blog.component';
+import { BlogDetailsComponent } from './blog-details/blog-details.component';
 
 
 const routes: Routes = [
@@ -13,7 +15,9 @@ const routes: Routes = [
   { path: 'navigation', component: NavbarComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'gallery', component: GalleryComponent }
+  { path: 'gallery', component: GalleryComponent },
+  { path: 'blog', component: BlogComponent },
+  { path: 'blog/content', component: BlogDetailsComponent },
   
 ];
 

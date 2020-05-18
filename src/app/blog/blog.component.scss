@@ -1,0 +1,19 @@
+.blog-container{
+	clear: both;
+	border-radius: 10px;
+	overflow: hidden;
+	margin-bottom: 20px;
+	cursor: pointer;
+	.thumbnail{
+		width: 200px;
+		height: 200px;
+		float: left;
+		background: red;
+	}
+	.description{
+		width: calc(100% - 200px);
+		float: right;
+		height: 200px;
+		background: grey;
+	}
+}
