@@ -11,6 +11,16 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogDetailsComponent } from './blog-details/blog-details.component';
 
+// firbase configurations
+import { environment } from 'src/environments/environment';
+// import {AngularFireModule} from '@angular/fire';
+// import {AngularFirestoreModule} from '@angular/fire/firestore';
+// import {AngularFireStorageModule} from '@angular/fire/storage';
+import { AdminComponent } from './admin/admin.component'
+
+// import { QuillModule } from 'ngx-quill';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,12 +30,20 @@ import { BlogDetailsComponent } from './blog-details/blog-details.component';
     AboutComponent,
     GalleryComponent,
     BlogComponent,
-    BlogDetailsComponent
+    BlogDetailsComponent,
+    AdminComponent,
+    DashboardComponent
   ],
+
   imports: [
     BrowserModule,
-    AppRoutingModule
+    // AngularFireModule.initializeApp(environment.config, 'delight-ambassador'),
+    // AngularFirestoreModule,
+    // AngularFireStorageModule,
+    AppRoutingModule,
+    // QuillModule.forRoot()
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
