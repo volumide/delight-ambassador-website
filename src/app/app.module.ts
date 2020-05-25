@@ -18,8 +18,9 @@ import { environment } from 'src/environments/environment';
 // import {AngularFireStorageModule} from '@angular/fire/storage';
 import { AdminComponent } from './admin/admin.component'
 
-// import { QuillModule } from 'ngx-quill';
+import { QuillModule, QUILL_CONFIG_TOKEN } from 'ngx-quill';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     // AngularFirestoreModule,
     // AngularFireStorageModule,
     AppRoutingModule,
-    // QuillModule.forRoot()
+    FormsModule,
+    QuillModule.forRoot(QUILL_CONFIG_TOKEN.ngInjectableDef)
   ],
 
   providers: [],
