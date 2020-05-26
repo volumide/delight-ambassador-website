@@ -1,9 +1,31 @@
-<form action="" method="post"  >
-	<div style="width: 800px; margin: 10px;">
-		<quill-editor [styles] = "editorStyle" [(ngModel)]="text" name="text" [modules] = 'config' (onContentChanged) = change($event)></quill-editor>
-
-		<button (click)="submit()">Submit</button>
+<div class="container-fluid ">
+	<div class="row">
+		<div class="col-2 px-0 bg-light">
+			<div class="sticky">
+				<app-admin-navigation></app-admin-navigation>
+			</div>
+		</div>
+		<div class="col-10">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-12 ">
+						<h5 class="">Dashboard</h5>
+						<p>Logs of all event and databse are seen here</p>
+					</div>
+					<div class="col-md-6 mb-3">
+						<app-card></app-card>
+					</div>
+					<div class="col-md-6 mb-3">
+						<app-card></app-card>
+					</div>
+					<div class="col-md-6 mb-3">
+						<app-card></app-card>
+					</div>
+					<div class="col-md-6 mb-3">
+						<app-card></app-card>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-</form>
-
-<div style="margin: 10px; padding: 5px;" [innerHTML] = 'textObject'></div>
+</div>

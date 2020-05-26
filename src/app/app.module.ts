@@ -19,8 +19,13 @@ import { environment } from 'src/environments/environment';
 import { AdminComponent } from './admin/admin.component'
 
 import { QuillModule, QUILL_CONFIG_TOKEN } from 'ngx-quill';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
+import { CardComponent } from './card/card.component';
+import { BlogadminComponent } from './blogadmin/blogadmin.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { EventadminComponent } from './eventadmin/eventadmin.component';
+import { LeadersadminComponent } from './leadersadmin/leadersadmin.component';
+import { AdminNavigationComponent } from './admin-navigation/admin-navigation.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +38,12 @@ import { FormsModule } from '@angular/forms';
     BlogComponent,
     BlogDetailsComponent,
     AdminComponent,
-    DashboardComponent
+    CardComponent,
+    BlogadminComponent,
+    DashboardComponent,
+    EventadminComponent,
+    LeadersadminComponent,
+    AdminNavigationComponent
   ],
 
   imports: [

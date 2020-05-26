@@ -21,14 +21,23 @@
 }
 
 .container{
-	padding: 30px;
-	width: 800px;
-	max-width: 90%;
-	margin: auto;
+	// padding: 30px;
+	// width: 800px;
+	// max-width: 90%;
+	// margin: auto;
 	h3{
 		color: var(--primary-color);
 		padding: 10px 0;
 	}
+}
+.sticky {
+	position: sticky;
+	top: 0;
+	height: 100vh;
+}
+
+.card{
+	height: 300px;
 }
 
 ul{
