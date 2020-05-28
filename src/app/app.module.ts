@@ -27,6 +27,9 @@ import { EventadminComponent } from './eventadmin/eventadmin.component';
 import { LeadersadminComponent } from './leadersadmin/leadersadmin.component';
 import { AdminNavigationComponent } from './admin-navigation/admin-navigation.component';
 import { GallaryadminComponent } from './gallaryadmin/gallaryadmin.component';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -55,7 +58,9 @@ import { GallaryadminComponent } from './gallaryadmin/gallaryadmin.component';
     // AngularFireStorageModule,
     AppRoutingModule,
     FormsModule,
-    QuillModule.forRoot(QUILL_CONFIG_TOKEN.ngInjectableDef)
+    QuillModule.forRoot(QUILL_CONFIG_TOKEN.ngInjectableDef),
+    RouterModule,
+    HttpClientModule
   ],
 
   providers: [],
