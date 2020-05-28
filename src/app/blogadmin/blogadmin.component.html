@@ -6,42 +6,41 @@
 			</div>
 		</div>
 		<div class="col-10">
-			<div class="container-fluid">
 				<div class="row">
-					<div class="col-12 ">
+					<div class="col-12 bg-light mb-5 ">
 						<ul class="nav justify-content-center">
 							<li class="nav-item">
-								<a class="nav-link active" href="#">Create new article</a>
+								<a class="nav-link active" (click)="newBlog()">Create new Blog</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">Manage Blog</a>
+								<a class="nav-link" (click)="manageBlog()">Manage Blog</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">Manage Comment</a>
+								<a class="nav-link" (click)="manageComment()" >Manage Comments</a>
 							</li>
 						</ul>
 					</div>
-					<div class="col-12" *ngIf="expression">
+					<div class="col-12" *ngIf="editor">
 						<form action="" class="mb-2">
 							<quill-editor [styles] = 'editorStyle' [modules] = 'config' [(ngModel)]="text" name= 'blog'></quill-editor>
 						</form>
-						<button class="btn btn-primary btn-sm  px-5 mr-5">Preview</button>
-						<button class="btn btn-primary btn-sm px-5">Publish</button>
+						<!-- <button class="btn btn-primary btn-sm  px-5 mr-5">Preview</button> -->
+						<button class="btn form-control mt-3 mb-3 btn-primary btn-sm px-5">Publish</button>
 						<div class="preview" [innerHTML] = 'text'></div>
 					</div>
 
-					<div class="col-12" *ngIf="expression">
+					<div class="col-12" *ngIf="blog">
 						<div class="row">
 							<div class="col-md-6">
 								<div class="card rounded-0">
 									<img src="https://cf.ltkcdn.net/family/images/std/200821-425x283-family.jpg" alt="">
 								</div>
-								<h4>Title</h4>
+								<p>Title</p>
 							</div>
 						</div>
 					</div>
 
-					<div class="col-12">
+					<div class="col-12" *ngIf="comment">
 						<div class="row mb-3">
 							<div class="col-md-9">
 								Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste ratione quasi asperiores deleniti explicabo quos eligendi, aliquid tenetur accusantium officiis. Labore sit accusamus numquam fugiat nesciunt quae, nam neque? Repudiandae.
@@ -58,7 +57,6 @@
 					</div>
 					
 				</div>
-			</div>
 		</div>
 	</div>
 </div>

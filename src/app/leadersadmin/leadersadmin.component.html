@@ -1,1 +1,58 @@
-<p>leadersadmin works!</p>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-2 px-0 bg-dark">
+			<div class="sticky">
+				<app-admin-navigation></app-admin-navigation>
+			</div>
+		</div>
+		<div class="col-10">
+			<div class="row">
+				<div class="col-12 bg-light">
+					<ul class="nav justify-content-center">
+						<li class="nav-item">
+							<a class="nav-link active" href="#">Manage profile</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Profiles</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-8 pt-5" >
+					<form action="">
+						<div class="form-group">
+						  <label for="title">Leader Name</label>
+						  <input type="text" name="" id="title" name="title" class="form-control rounded-0" placeholder="">
+						</div>
+						
+						<div class="form-group">
+							<label for="office">Leader Office</label>
+							<input type="text" name="" id="office" name="title" class="form-control rounded-0" placeholder="">
+						</div>
+
+						<div class="form-group">
+						  <label for="">Upload leader's picture</label>
+						  <input type="file" class="form-control-file rounded-0 border-0" name="" id="" aria-describedby="helpId" placeholder="">
+						</div>
+						<button class="btn btn-primary rounded-0 mt-3">Publish Event</button>
+					</form>
+				</div>
+				<div class="col-md-4 pt-5">
+					<div class="card rounded-0">
+						<img src="https://cf.ltkcdn.net/family/images/std/200821-425x283-family.jpg" alt="">
+					</div>
+					<p class="">Name</p>
+					<p class="">Office</p>
+				</div>
+				<!-- <div class="col-md-6 mt-3 mb-3" *ngIf="expression">
+					<div class="card rounded-0">
+						<img src="https://cf.ltkcdn.net/family/images/std/200821-425x283-family.jpg" alt="">
+					</div>
+					<p class="">Name</p>
+					<p class="">Office</p>
+					<button class="btn btn-primary form-control">Delete Event</button>
+				</div> -->
+			</div>
+		</div>
+	</div>
+
+</div>

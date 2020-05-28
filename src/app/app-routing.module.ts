@@ -10,6 +10,9 @@ import { BlogDetailsComponent } from './blog-details/blog-details.component';
 import { AdminNavigationComponent } from './admin-navigation/admin-navigation.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BlogadminComponent } from './blogadmin/blogadmin.component';
+import { EventadminComponent } from './eventadmin/eventadmin.component';
+import { GallaryadminComponent } from './gallaryadmin/gallaryadmin.component';
+import { LeadersadminComponent } from './leadersadmin/leadersadmin.component';
 
 
 const routes: Routes = [
@@ -24,6 +27,10 @@ const routes: Routes = [
   { path: 'admin/nav', component: AdminNavigationComponent },
   { path: 'admin/dashboard', component: DashboardComponent },
   { path: 'admin/blog', component: BlogadminComponent },
+  { path: 'admin/event', component: EventadminComponent },
+  { path: 'admin/gallery', component: GallaryadminComponent },
+  { path: 'admin/profile', component: LeadersadminComponent },
+
   
 ];
 

@@ -1,1 +1,56 @@
-<p>eventadmin works!</p>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-2 px-0 bg-dark">
+			<div class="sticky">
+				<app-admin-navigation></app-admin-navigation>
+			</div>
+		</div>
+		<div class="col-10">
+			<div class="row">
+				<div class="col-12 bg-light mb-5">
+					<ul class="nav justify-content-center">
+						<li class="nav-item">
+							<a class="nav-link active" (click)="newEvents()">Create New Event</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" (click)="manageEvents()">Manage Events</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-12" *ngIf="newEvent">
+					<h4 class="text-center">
+						Create New Event
+					</h4>
+				</div>
+				<div class="col-md-8 mx-auto" *ngIf="newEvent" >
+					<form action="">
+						<div class="form-group">
+						  <label for="title">Event Title</label>
+						  <input type="text" name="" id="title" name="title" class="form-control rounded-0" placeholder="" aria-describedby="helpId">
+						</div>
+						
+						<div class="form-group">
+							<label for="summary">Event Brief</label>
+							<textarea class="form-control rounded-0" name="summary" id="summary" rows="3"></textarea>
+						</div>
+
+						<div class="form-group">
+						  <label for="">Upload event flyer</label>
+						  <input type="file" class="form-control-file rounded-0 border-0" name="" id="" aria-describedby="helpId" placeholder="">
+						</div>
+						<button class="btn btn-primary rounded-0 mt-3">Publish Event</button>
+					</form>
+				</div>
+				
+				<div class="col-md-6 mx-auto mt-3 mb-3" *ngIf="events">
+					<div class="card rounded-0">
+						<img src="https://cf.ltkcdn.net/family/images/std/200821-425x283-family.jpg" alt="">
+					</div>
+					<h4 class="text-center pt-3 pb-3">Event Title</h4>
+					<button class="btn btn-primary form-control">Delete Event</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

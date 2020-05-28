@@ -26,6 +26,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EventadminComponent } from './eventadmin/eventadmin.component';
 import { LeadersadminComponent } from './leadersadmin/leadersadmin.component';
 import { AdminNavigationComponent } from './admin-navigation/admin-navigation.component';
+import { GallaryadminComponent } from './gallaryadmin/gallaryadmin.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AdminNavigationComponent } from './admin-navigation/admin-navigation.co
     DashboardComponent,
     EventadminComponent,
     LeadersadminComponent,
-    AdminNavigationComponent
+    AdminNavigationComponent,
+    GallaryadminComponent
   ],
 
   imports: [
