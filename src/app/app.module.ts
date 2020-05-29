@@ -29,6 +29,7 @@ import { AdminNavigationComponent } from './admin-navigation/admin-navigation.co
 import { GallaryadminComponent } from './gallaryadmin/gallaryadmin.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { ImagecardComponent } from './imagecard/imagecard.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { HttpClientModule } from '@angular/common/http';
     EventadminComponent,
     LeadersadminComponent,
     AdminNavigationComponent,
-    GallaryadminComponent
+    GallaryadminComponent,
+    ImagecardComponent
   ],
 
   imports: [

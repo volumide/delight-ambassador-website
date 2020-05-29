@@ -39,14 +39,15 @@ export class BlogadminComponent implements OnInit {
     this.data.title = "creating content"
     this.service.createBlog(this.data).subscribe(
       res => console.log(res), 
-      err => console.log(err['error'])
+      err => console.error(err.error)
     )
+    console.time()
   }
 
   getAllContents(){
     this.service.getAllBlog().subscribe(
       data => console.log(data),
-      err => console.log(err)
+      err => console.error(err.error)
     )
   }
 
@@ -55,35 +56,36 @@ export class BlogadminComponent implements OnInit {
     this.data.title = "help"
     this.service.updateBlog(this.data, 2).subscribe(
       res => console.log(res),
-      err => console.log(err)
+      err => console.log(err.error)
     )
   }
 
   getContent(){
     this.service.getBlogById(2).subscribe(
       res => console.log(res),
-      err => console.log(err)
+      err => console.error(err.error)
     )
   }
+  
 
   deleteContent(){
     this.service.deleteBlogById(3).subscribe(
       res => console.log(res),
-      err => console.log(err)
+      err => console.error(err.error),
     )
   }
 
   getAllComments(){
     this.service.getAllComment().subscribe(
       res => console.log(res),
-      err => console.log(err)
+      err => console.error(err.error)
     )
   }
 
   deleteComment(){
     this.service.deleteLeaderProfileById(2).subscribe(
       res => console.log(res),
-      err => console.log(err)
+      err => console.log(err.error)
     )
   }
 
