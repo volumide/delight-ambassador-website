@@ -11,7 +11,7 @@ export class ServiceNameService {
 })
 export class BlogcontrolService {
 
-  url = "http://127.0.0.1:8000/"
+  url = "http://localhost/delight-backend/public/api/"
   
   constructor(public http: HttpClient) { }
 
@@ -20,9 +20,20 @@ export class BlogcontrolService {
     return this.url + prefix + index
   }
 
+  public headers(){
+    let header = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      })   
+    }
+    return header
+  }
+
   // blog api consumation
   createBlog(data:any){
-    return this.http.post(`${this.url}create/blog`, data)
+    let header = this.headers()
+    return this.http.post(`${this.url}create/blog`, data )
   }
 
   updateBlog(data: any, id :any){
@@ -38,7 +49,7 @@ export class BlogcontrolService {
   }
 
   deleteBlogById(id:any){
-    return this.http.delete(this.shortUrl('delete/blog', id))
+    return this.http.delete(this.shortUrl('delete/blog/', id))
   }
 
   //Leader api consumation
@@ -71,7 +82,7 @@ export class BlogcontrolService {
     return this.http.put(this.shortUrl('update/event', id), data)
   }
 
-  getAllLEvents(){
+  getAllEvents(){
     return this.http.get(this.shortUrl('all/event'))
   }
 
