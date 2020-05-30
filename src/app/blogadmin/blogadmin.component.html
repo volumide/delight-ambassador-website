@@ -22,21 +22,30 @@
 					</div>
 					<div class="col-12" *ngIf="editor">
 						<form action="" class="mb-2">
-							<quill-editor [styles] = 'editorStyle' [modules] = 'config' [(ngModel)]="text" name= 'blog'></quill-editor>
+							<div class="form-group">
+							  <label for="tile">Title</label>
+							  <input type="text"
+								class="form-control rounded-0" name="title" [(ngModel)]="data.title" id="" aria-describedby="helpId" placeholder="Title">
+							</div>
+
+							<quill-editor [styles] = 'editorStyle' [modules] = 'config' [(ngModel)]="data.content" name= 'blog'></quill-editor>
 						</form>
-						<!-- <button class="btn btn-primary btn-sm  px-5 mr-5">Preview</button> -->
-						<button class="btn form-control mt-3 mb-3 btn-primary btn-sm px-5">Publish</button>
-						<div class="preview" [innerHTML] = 'text'></div>
+
+						<button class="btn mt-3 mb-3 btn-primary btn-sm px-5" (click)="createContent()" [disabled] = 'loading'>Publish</button>
+						<div class="preview" [innerHTML] = 'data.content'></div>
 					</div>
 
 					<div class="col-12" *ngIf="blog">
 						<div class="row">
-							<div class="col-md-6">
-								<app-imagecard></app-imagecard>
+							<div class="col-md-12 mb-4" *ngFor="let blog of blogContent">
+								<p [innerHTML] = 'blog.title'></p>
+								<!-- <p [innerHTML] = 'blog.content' ></p> -->
+								<button class="btn btn-danger " (click)="deleteContent(blog.id)" [disabled] = 'loading'>Delete</button>
 							</div>
 						</div>
 					</div>
-
+					
+					<!-- coment -->
 					<div class="col-12" *ngIf="comment">
 						<div class="row mb-3">
 							<div class="col-md-9">

@@ -26,28 +26,31 @@
 					<form action="">
 						<div class="form-group">
 						  <label for="title">Event Title</label>
-						  <input type="text" name="" id="title" name="title" class="form-control rounded-0" placeholder="" aria-describedby="helpId">
+						  <input type="text" name="" id="title" name="title" class="form-control rounded-0" placeholder="" aria-describedby="helpId" [(ngModel)]="data.title">
 						</div>
 						
 						<div class="form-group">
 							<label for="summary">Event Brief</label>
-							<textarea class="form-control rounded-0" name="summary" id="summary" rows="3"></textarea>
+							<textarea class="form-control rounded-0" name="summary" id="summary" rows="3" [(ngModel)]="data.content"></textarea>
 						</div>
 
 						<div class="form-group">
 						  <label for="">Upload event flyer</label>
 						  <input type="file" class="form-control-file rounded-0 border-0" name="" id="" aria-describedby="helpId" placeholder="">
 						</div>
-						<button class="btn btn-primary rounded-0 mt-3">Publish Event</button>
+						<button class="btn btn-primary rounded-0 mt-3" (click)="CreateNewEvent()"  [disabled] = 'loading' >Publish Event</button>
 					</form>
 				</div>
 				
-				<div class="col-md-6 mx-auto mt-3 mb-3" *ngIf="events">
-					<div class="card rounded-0">
-						<img src="https://cf.ltkcdn.net/family/images/std/200821-425x283-family.jpg" alt="">
+				<div class="col-md-6 mt-3 mb-3" *ngFor="let event of allevents">
+					<div *ngIf="events">
+						<div class="card rounded-0">
+							<img src="https://cf.ltkcdn.net/family/images/std/200821-425x283-family.jpg" alt="" >
+						</div>
+						<p class="pt-3 pb-3" > {{event.title}} </p>
+						<button class="btn btn-primary rounded-0" (click)="deleteEvent(event.id)" >Delete Event</button>
 					</div>
-					<h4 class="text-center pt-3 pb-3">Event Title</h4>
-					<button class="btn btn-primary form-control">Delete Event</button>
+					
 				</div>
 			</div>
 		</div>

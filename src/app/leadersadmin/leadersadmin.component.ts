@@ -9,19 +9,36 @@ import { BlogcontrolService } from '../blogcontrol.service';
 })
 export class LeadersadminComponent implements OnInit {
 
+  newProfile : boolean = true
+  manageProfile: boolean = false
+  allProfiles: boolean = false
+  loading: boolean = false
   data : Bloginterface = {
     name: "Ajala",
     picture : "",
     office : "Teanager organizer"
   }
 
+  profiles: any
+
+  // card = {
+  //   name: "",
+  //   caption : "Tolu"
+  // }
+
   constructor(public service : BlogcontrolService) { 
-    this.createProfile()
+    // this.createProfile()
+    this.getAllProfiles()
   }
 
   createProfile(){
     this.service.createLeaderProfile(this.data).subscribe(
-      data => console.log(data),
+      data => {
+        console.log(data)
+        this.data.name = ''
+        this.data.office = ''
+        this.getAllProfiles()
+      },
       err => console.log(err)
     )
   }
@@ -34,10 +51,15 @@ export class LeadersadminComponent implements OnInit {
   }
 
   getAllProfiles(){
+    this.loading = true
     this.service.getAllLeaderProfile().subscribe(
-      res => console.log(res),
+      res =>{
+        this.profiles = res['data']
+        console.log(res)
+      },
       err => console.log(err)
     )
+    this.loading = false
   }
 
   getProfile(){
@@ -47,11 +69,36 @@ export class LeadersadminComponent implements OnInit {
     )
   }
 
-  deleteProfile(){
-    this.service.deleteLeaderProfileById(2).subscribe(
-      res => console.log(res),
+  deleteProfile(id){
+    
+    this.service.deleteLeaderProfileById(id).subscribe(
+      
+      res => {  
+        this.loading = true
+        console.log(res)
+        this.getAllProfiles()
+      },
       err => console.log(err)
     )
+    this.loading = false
+  }
+
+  showCreateProfile(){
+    this.newProfile = true
+    this.manageProfile = false
+    this.allProfiles = false
+  }
+
+  showAllProfile(){
+    this.newProfile = false
+    this.manageProfile = false
+    this.allProfiles = true
+  }
+  
+  showManageProfile(){
+    this.newProfile = false
+    this.manageProfile = true
+    this.allProfiles = false
   }
 
   ngOnInit() {

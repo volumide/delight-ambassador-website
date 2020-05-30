@@ -21,10 +21,6 @@
 }
 
 .container{
-	// padding: 30px;
-	// width: 800px;
-	// max-width: 90%;
-	// margin: auto;
 	h3{
 		color: var(--primary-color);
 		padding: 10px 0;
@@ -35,12 +31,11 @@
 	top: 0;
 	height: 100vh;
 }
+
 .bg-dark{
 	background: purple !important;
 }
-.card{
-	height: 300px;
-}
+
 
 ul{
 	list-style-type: none;
@@ -66,6 +61,11 @@ img{
 
 li{
 	padding: 3px 0 ;
+}
+
+input{
+	box-shadow: none !important;
+	outline: none;
 }
 
 .welcome-container{

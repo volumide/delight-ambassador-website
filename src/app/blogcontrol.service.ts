@@ -86,7 +86,7 @@ export class BlogcontrolService {
     return this.http.get(this.shortUrl('all/event'))
   }
 
-  getEventyId(id:any){
+  getEventById(id:any){
     return this.http.get(this.shortUrl('event/', id))
   }
 

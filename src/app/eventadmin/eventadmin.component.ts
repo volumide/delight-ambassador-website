@@ -10,18 +10,28 @@ import { BlogcontrolService } from '../blogcontrol.service';
 export class EventadminComponent implements OnInit {
 
   constructor(public service : BlogcontrolService) { }
-
+  loading: boolean = false
   data : Bloginterface = {
     title: "Ajala",
     picture : "",
     content : "Teanager organizer"
   }
+  newEvent:boolean =true
+  events:boolean = false
+  allevents: any
 
   CreateNewEvent(){
+    this.loading = true
     this.service.createEvent(this.data).subscribe(
-      data => console.log(data),
+      data => {
+        console.log(data)
+        this.getallEvents()
+        this.data.title = ""
+        this.data.content = ""
+      },
       err => console.log(err)
     )
+    this.loading = false
   }
 
   updateEvent(){
@@ -33,29 +43,39 @@ export class EventadminComponent implements OnInit {
 
   getallEvents(){
     this.service.getAllEvents().subscribe(
-      res => console.log(res),
+      res => {
+        console.log(res)
+          this.allevents = res['data']
+          if (res['message']) {
+            console.log(res['message'])
+          }
+          // 
+      },
       err => console.log(err)
     )
   }
 
   getEvent(){
-    this.service.getEventyId(2).subscribe(
+    this.service.getEventById(2).subscribe(
       res => console.log(res),
       err => console.log(err)
     )
   }
 
-  deleteEvent(){
-    this.service.getEventyId(2).subscribe(
-      res => console.log(res),
+  deleteEvent(id:any){
+    this.service.deleteEventById(id) .subscribe(
+      res => {
+        console.log(res)
+        this.getallEvents()
+      },
       err => console.log(err)
     )
   }
 
-  newEvent:boolean =false
-  events:boolean = false
+  
 
   ngOnInit() {
+    this.getallEvents()
   }
 
   newEvents(){
@@ -64,6 +84,9 @@ export class EventadminComponent implements OnInit {
   }
 
   manageEvents(){
+    if (this.allevents) {
+      console.log(this.allevents)
+    }
     this.newEvent = false
     this.events = true
   }

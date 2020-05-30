@@ -13,6 +13,7 @@ export class BlogadminComponent implements OnInit {
   editor = true
   blog = false
   comment = false
+  loading: boolean = false
 
   public data: Bloginterface = {
     content : "",
@@ -26,27 +27,43 @@ export class BlogadminComponent implements OnInit {
     comment : "",
   }
 
+  public caption = {
+    name: "",
+    src : "",
+    caption : ""
+  }
+
+  public blogContent
+
   constructor(public service : BlogcontrolService ) { 
     // this.createContent()
-    // this.getAllContent()
+    this.getAllContents()
     // this.updateContent()
     // this.getContent()
-    this.deleteContent()
+    // this.deleteContent()
   }
 
   createContent(){
-    this.data.content = "This is another content"
-    this.data.title = "creating content"
+    this.loading = true
     this.service.createBlog(this.data).subscribe(
-      res => console.log(res), 
+      res => {
+        console.log(res)
+        this.getAllContents()
+        this.data.content = ""
+        this.data.title = ""
+      }, 
       err => console.error(err.error)
     )
-    console.time()
+    // console.time()
+    this.loading = false
   }
 
   getAllContents(){
     this.service.getAllBlog().subscribe(
-      data => console.log(data),
+      res => {
+        console.log(res.data)
+        this.blogContent = res.data
+      },
       err => console.error(err.error)
     )
   }
@@ -55,24 +72,34 @@ export class BlogadminComponent implements OnInit {
     this.data.content = "working"
     this.data.title = "help"
     this.service.updateBlog(this.data, 2).subscribe(
-      res => console.log(res),
+      res => {
+
+        console.log(res)
+      },
       err => console.log(err.error)
     )
   }
 
   getContent(){
+    this.loading = true
     this.service.getBlogById(2).subscribe(
       res => console.log(res),
       err => console.error(err.error)
     )
+    this.loading = false
   }
   
 
-  deleteContent(){
-    this.service.deleteBlogById(3).subscribe(
-      res => console.log(res),
+  deleteContent(id){
+    this.loading = true
+    this.service.deleteBlogById(id).subscribe(
+      res => {
+        console.log(res)
+        this.getAllContents()
+      },
       err => console.error(err.error),
     )
+    this.loading = false
   }
 
   getAllComments(){
@@ -92,7 +119,8 @@ export class BlogadminComponent implements OnInit {
 
 
   editorStyle = {
-    height: 'calc(100vh - 200px)',
+    height: 'calc(100vh - 500px)',
+    border: "none"
   };
 
   text:string
