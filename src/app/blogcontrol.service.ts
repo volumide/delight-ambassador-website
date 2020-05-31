@@ -125,4 +125,13 @@ export class BlogcontrolService {
     return this.http.delete(this.shortUrl('unsubscribe/from/mailing/list'))
   }
 
+  // count 
+  countAll(){
+    return this.http.get(this.shortUrl('count'))
+  }
+
+  uploadImage(data:object){
+    return this.http.post(this.shortUrl('upload/image'), data)
+  }
 }
+

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BlogcontrolService } from '../blogcontrol.service';
 import {Bloginterface} from '../bloginterface'
 import { Observable } from 'rxjs'
+import { isNull } from 'util';
 
 @Component({
   selector: 'app-blogadmin',
@@ -14,6 +15,7 @@ export class BlogadminComponent implements OnInit {
   blog = false
   comment = false
   loading: boolean = false
+  image = ''
 
   public data: Bloginterface = {
     content : "",
@@ -43,26 +45,71 @@ export class BlogadminComponent implements OnInit {
     // this.deleteContent()
   }
 
+  imageUpload(event:any){
+    if (event) {
+			console.log(event)
+      let size = Math.floor(event.target.files[0].size/1024)
+      // if (size >= 4029) {
+      //   this.image = null
+      //   return
+      // }else if(size <= 2048){
+      //   this.image = null
+      //   return
+      // }else{
+        this.image = event.target.files[0]
+        // this.processImage()
+      // }
+
+			// if (event.target.files[0] && event.target.files) {
+			// 	let file = new FileReader()
+			// 	file.onload = (e: any) => {
+			// 		let path = e.target.result
+			// 	}
+			// 	file.readAsDataURL(event.target.files[0])
+			// }
+		}
+  }
+  
   createContent(){
-    this.loading = true
-    this.service.createBlog(this.data).subscribe(
-      res => {
-        console.log(res)
-        this.getAllContents()
-        this.data.content = ""
-        this.data.title = ""
-      }, 
-      err => console.error(err.error)
-    )
-    // console.time()
-    this.loading = false
+		try {
+			let formData = new FormData()
+			formData.append('image', this.image)
+			this.service.uploadImage(formData).toPromise()
+			.then(res => {
+			console.log(res)
+				if(isNull(res)){
+					this.data.picture = null
+				}else{
+					this.data.picture = res['url']
+				}
+			})
+			.then(()=>{
+				this.processData()
+			})
+			.catch(err => console.log(err))
+		} catch (error) {
+			console.log(error)
+		}
+		
+  }
+
+  processData(){
+    this.service.createBlog(this.data).toPromise()
+    .then(res => {
+		console.log(res)
+		this.data.content = ""
+		this.data.title = ""
+		this.data.picture = ""
+    }).catch(err =>{
+      console.log(err)
+    })
   }
 
   getAllContents(){
     this.service.getAllBlog().subscribe(
       res => {
-        console.log(res.data)
-        this.blogContent = res.data
+        console.log(res['data'])
+        this.blogContent = res['data']
       },
       err => console.error(err.error)
     )
@@ -88,7 +135,6 @@ export class BlogadminComponent implements OnInit {
     )
     this.loading = false
   }
-  
 
   deleteContent(id){
     this.loading = true
@@ -115,8 +161,6 @@ export class BlogadminComponent implements OnInit {
       err => console.log(err.error)
     )
   }
-
-
 
   editorStyle = {
     height: 'calc(100vh - 500px)',

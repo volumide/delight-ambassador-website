@@ -22,13 +22,18 @@
 					</div>
 					<div class="col-12" *ngIf="editor">
 						<form action="" class="mb-2">
-							<div class="form-group">
+							<div class="form-group mb-4">
 							  <label for="tile">Title</label>
 							  <input type="text"
-								class="form-control rounded-0" name="title" [(ngModel)]="data.title" id="" aria-describedby="helpId" placeholder="Title">
+								class="form-control rounded-0" name="title" [(ngModel)]="data.title" id="" placeholder="Title">
 							</div>
 
-							<quill-editor [styles] = 'editorStyle' [modules] = 'config' [(ngModel)]="data.content" name= 'blog'></quill-editor>
+							<div class="form-group mb-4">
+							  <label for="">Header Image</label>
+							  <input type="file" class="form-control-file" name="" id="" placeholder=""  (change) = "imageUpload($event)">
+							</div>
+
+							<quill-editor class="mb-4" [styles] = 'editorStyle' [modules] = 'config' [(ngModel)]="data.content" name= 'blog'></quill-editor>
 						</form>
 
 						<button class="btn mt-3 mb-3 btn-primary btn-sm px-5" (click)="createContent()" [disabled] = 'loading'>Publish</button>

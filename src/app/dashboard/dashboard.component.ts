@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BlogcontrolService } from '../blogcontrol.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -30,9 +31,22 @@ export class DashboardComponent implements OnInit {
     description: "all gallery records here",
     count: "30"
   }
-  constructor() { }
+  constructor(public service:BlogcontrolService) {
+    this.countAll()
+   }
 
+  countAll(){
+    this.service.countAll().subscribe(
+      res => {
+        console.log(res)
+        this.blog.count = res['blog']
+        this.profile.count = res['profile']
+        this.events.count = res['event']
+      },
+      err => console.error(err))
+  }
   ngOnInit() {
+    
   }
 
 }

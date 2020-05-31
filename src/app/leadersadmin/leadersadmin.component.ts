@@ -51,15 +51,16 @@ export class LeadersadminComponent implements OnInit {
   }
 
   getAllProfiles(){
-    this.loading = true
+   
     this.service.getAllLeaderProfile().subscribe(
       res =>{
         this.profiles = res['data']
         console.log(res)
+
       },
       err => console.log(err)
     )
-    this.loading = false
+    
   }
 
   getProfile(){
@@ -70,17 +71,18 @@ export class LeadersadminComponent implements OnInit {
   }
 
   deleteProfile(id){
-    
+    this.loading = true
     this.service.deleteLeaderProfileById(id).subscribe(
-      
       res => {  
-        this.loading = true
         console.log(res)
         this.getAllProfiles()
+        this.loading = false
       },
-      err => console.log(err)
+      err => {
+        console.error(err)
+        this.loading = false
+      }
     )
-    this.loading = false
   }
 
   showCreateProfile(){
