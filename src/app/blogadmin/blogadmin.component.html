@@ -42,9 +42,9 @@
 
 					<div class="col-12" *ngIf="blog">
 						<div class="row">
-							<div class="col-md-12 mb-4" *ngFor="let blog of blogContent">
-								<p [innerHTML] = 'blog.title'></p>
-								<!-- <p [innerHTML] = 'blog.content' ></p> -->
+							<div class="col-md-6 mb-4" *ngFor="let blog of blogContent">
+								<app-imagecard [image] = 'blog'></app-imagecard>
+
 								<button class="btn btn-danger " (click)="deleteContent(blog.id)" [disabled] = 'loading'>Delete</button>
 							</div>
 						</div>

@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Bloginterface} from '../bloginterface';
 import { BlogcontrolService } from '../blogcontrol.service';
+import { isNull } from 'util';
+import { Upload } from '../upload';
 
 @Component({
   selector: 'app-leadersadmin',
   templateUrl: './leadersadmin.component.html',
-  styleUrls: ['./leadersadmin.component.scss']
+  styleUrls: ['./leadersadmin.component.scss'],
+  providers: [Upload]
 })
 export class LeadersadminComponent implements OnInit {
-
+  image = ''
   newProfile : boolean = true
   manageProfile: boolean = false
   allProfiles: boolean = false
@@ -21,26 +24,43 @@ export class LeadersadminComponent implements OnInit {
 
   profiles: any
 
-  // card = {
-  //   name: "",
-  //   caption : "Tolu"
-  // }
-
-  constructor(public service : BlogcontrolService) { 
+  constructor(public service : BlogcontrolService, public upload: Upload) { 
     // this.createProfile()
     this.getAllProfiles()
   }
 
+  imageUpload(event:any){
+    this.image = this.upload.imageUpload(event)
+  }
+
   createProfile(){
-    this.service.createLeaderProfile(this.data).subscribe(
-      data => {
-        console.log(data)
+    let formData = this.upload.formData(this.image)
+
+    this.service.uploadImage(formData).toPromise()
+    .then(res => {
+      if(isNull(res)){
+        this.data.picture = null
+      }else{
+        this.data.picture = res['url']
+      }
+    })
+    .then(()=>{
+      this.processProfile()
+    })
+    .catch(err => console.log(err))
+  }
+
+  processProfile(){
+    this.service.createLeaderProfile(this.data).toPromise().
+    then(res => {
+      console.log(res)
         this.data.name = ''
         this.data.office = ''
+        this.data.picture = ''
         this.getAllProfiles()
-      },
-      err => console.log(err)
-    )
+    }).catch(err =>{
+      console.log(err)
+    })
   }
 
   updateProfile(){

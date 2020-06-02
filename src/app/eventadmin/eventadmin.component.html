@@ -7,6 +7,8 @@
 		</div>
 		<div class="col-10">
 			<div class="row">
+				
+				<!-- header -->
 				<div class="col-12 bg-light mb-5">
 					<ul class="nav justify-content-center">
 						<li class="nav-item">
@@ -22,6 +24,8 @@
 						Create New Event
 					</h4>
 				</div>
+
+				<!-- form -->
 				<div class="col-md-8 mx-auto" *ngIf="newEvent" >
 					<form action="">
 						<div class="form-group">
@@ -36,18 +40,16 @@
 
 						<div class="form-group">
 						  <label for="">Upload event flyer</label>
-						  <input type="file" class="form-control-file rounded-0 border-0" name="" id="" aria-describedby="helpId" placeholder="">
+						  <input type="file" (change) = "imageUpload($event)" class="form-control-file rounded-0 border-0" name="" id="" aria-describedby="helpId" placeholder="">
 						</div>
-						<button class="btn btn-primary rounded-0 mt-3" (click)="CreateNewEvent()"  [disabled] = 'loading' >Publish Event</button>
+						<button class="btn btn-primary rounded-0 mt-3" (click)="createNewEvent()"  [disabled] = 'loading' >Publish Event</button>
 					</form>
 				</div>
 				
+				<!-- management -->
 				<div class="col-md-6 mt-3 mb-3" *ngFor="let event of allevents">
 					<div *ngIf="events">
-						<div class="card rounded-0">
-							<img src="https://cf.ltkcdn.net/family/images/std/200821-425x283-family.jpg" alt="" >
-						</div>
-						<p class="pt-3 pb-3" > {{event.title}} </p>
+						<app-imagecard [image] = 'event'></app-imagecard>
 						<button class="btn btn-primary rounded-0" (click)="deleteEvent(event.id)" >Delete Event</button>
 					</div>
 					

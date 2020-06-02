@@ -3,11 +3,13 @@ import { BlogcontrolService } from '../blogcontrol.service';
 import {Bloginterface} from '../bloginterface'
 import { Observable } from 'rxjs'
 import { isNull } from 'util';
+import { Upload } from '../upload';
 
 @Component({
   selector: 'app-blogadmin',
   templateUrl: './blogadmin.component.html',
-  styleUrls: ['./blogadmin.component.scss']
+  styleUrls: ['./blogadmin.component.scss'],
+  providers: [Upload]
 })
 export class BlogadminComponent implements OnInit {
 
@@ -37,7 +39,7 @@ export class BlogadminComponent implements OnInit {
 
   public blogContent
 
-  constructor(public service : BlogcontrolService ) { 
+  constructor(public service : BlogcontrolService, public upload: Upload ) { 
     // this.createContent()
     this.getAllContents()
     // this.updateContent()
@@ -46,34 +48,14 @@ export class BlogadminComponent implements OnInit {
   }
 
   imageUpload(event:any){
-    if (event) {
-			console.log(event)
-      let size = Math.floor(event.target.files[0].size/1024)
-      // if (size >= 4029) {
-      //   this.image = null
-      //   return
-      // }else if(size <= 2048){
-      //   this.image = null
-      //   return
-      // }else{
-        this.image = event.target.files[0]
-        // this.processImage()
-      // }
-
-			// if (event.target.files[0] && event.target.files) {
-			// 	let file = new FileReader()
-			// 	file.onload = (e: any) => {
-			// 		let path = e.target.result
-			// 	}
-			// 	file.readAsDataURL(event.target.files[0])
-			// }
-		}
+    this.image = this.upload.imageUpload(event)
   }
   
   createContent(){
 		try {
-			let formData = new FormData()
-			formData.append('image', this.image)
+
+      let formData = this.upload.formData(this.image)
+
 			this.service.uploadImage(formData).toPromise()
 			.then(res => {
 			console.log(res)
@@ -99,7 +81,8 @@ export class BlogadminComponent implements OnInit {
 		console.log(res)
 		this.data.content = ""
 		this.data.title = ""
-		this.data.picture = ""
+    this.data.picture = ""
+    this.getAllContents()
     }).catch(err =>{
       console.log(err)
     })

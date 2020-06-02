@@ -7,6 +7,8 @@
 		</div>
 		<div class="col-10">
 			<div class="row">
+
+				<!-- headers -->
 				<div class="col-12 bg-light">
 					<ul class="nav justify-content-center">
 						<li class="nav-item">
@@ -17,27 +19,33 @@
 						</li>
 					</ul>
 				</div>
-				<div class="col-md-8 mx-auto pt-5" *ngIf="newImage" >
-					<form (ngSubmit)="onSubmit()" #form="ngForm">
+
+				<!-- form -->
+				<div class="col-md-9 mx-auto pt-5" *ngIf="newImage" >
+					<form>
+						<!-- input -->
 						<div class="form-group">
 						  <label for="">Upload Picture</label>
-						  <input type="file" class="form-control-file" name="" id="" placeholder="" aria-describedby="fileHelpId">
+						  <input type="file" (change) = 'imageUpload($event)' class="form-control-file" name="" id="" placeholder="" >
 						</div>
 
+						<!-- caption -->
 						<div class="form-group">
 						  <label for="">Caption</label>
 						  <input type="text"
-							class="form-control rounded-0" name="" id="" aria-describedby="helpId" placeholder="Image caption">
+							class="form-control rounded-0" name="" placeholder="Image caption" [(ngModel)]="data.caption" name ='caption'>
 						</div>
 
-						<div class="preview">
-
-						</div>
+						<button class="btn btn-primary rounded-0" (click)="uploadNewImage()" [disabled] = 'loading'>Upload Picture</button>
 					</form>
 				</div>
-				<div class="col-md-4 pt-5" *ngIf="allimage" >
-					<app-imagecard></app-imagecard>
-					<button class="btn btn-primary form-control">Delete</button>
+
+				<!-- management -->
+				<div class="col-md-4 pt-5" *ngFor="let image of allImages" >
+					<div *ngIf="allimage" >
+						<app-imagecard [image] = 'image'></app-imagecard>
+						<button class="btn btn-primary form-control" (click)="deleteImage(image.id)">Delete</button>
+					</div>
 				</div>
 			</div>
 		</div>

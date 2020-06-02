@@ -8,5 +8,6 @@ export interface Bloginterface {
 	"office"? 	: string,
 	"content"? 	: string,
 	"title"? 	: string,
-	"password"? : any
+	"password"? : any,
+	"caption"?: string
 }

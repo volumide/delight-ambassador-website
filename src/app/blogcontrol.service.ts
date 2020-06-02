@@ -130,8 +130,26 @@ export class BlogcontrolService {
     return this.http.get(this.shortUrl('count'))
   }
 
+  //uploaad image document
   uploadImage(data:object){
     return this.http.post(this.shortUrl('upload/image'), data)
+  }
+
+  //gallery
+  uploadGalleryImage(data:object){
+    return this.http.post(`${this.url}upload/gallery/image`, data)
+  }
+
+  getAllImages(){
+    return this.http.get(this.shortUrl('all/images'))
+  }
+
+  getImageById(id:any){
+    return this.http.get(this.shortUrl('image/', id))
+  }
+
+  deleteImageById(id:any){
+    return this.http.delete(this.shortUrl('delete/image/', id))
   }
 }
 

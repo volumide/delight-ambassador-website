@@ -6,8 +6,8 @@
 			<div class="col-12">
 				<h3>GALLERY</h3>
 			</div>
-			<div class="col-md-4">
-				<app-imagecard></app-imagecard>
+			<div class="col-md-4" *ngFor="let image of allImages">
+				<app-imagecard [image] = 'image'></app-imagecard>
 			</div>
 		</div>
 	</div>
