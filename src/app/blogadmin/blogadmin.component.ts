@@ -13,6 +13,25 @@ import { Upload } from '../upload';
 })
 export class BlogadminComponent implements OnInit {
 
+  editorStyle = {
+    height: 'calc(100vh - 500px)',
+    border: "none"
+  };
+
+  text:string
+  textObject:string
+
+  config = {
+    toolbar: [
+      ['bold', 'italic', 'underline'],
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+      ['link'],
+      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+      [{ 'script': 'sub'}, { 'script': 'super' }],
+      [{ 'indent': '-1'}, { 'indent': '+1' }], 
+    ]
+  }
+
   editor = true
   blog = false
   comment = false
@@ -145,23 +164,7 @@ export class BlogadminComponent implements OnInit {
     )
   }
 
-  editorStyle = {
-    height: 'calc(100vh - 500px)',
-    border: "none"
-  };
-
-  text:string
-  textObject:string
-  config = {
-    toolbar: [
-      ['bold', 'italic', 'underline'],
-      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-      ['link'],
-      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-      [{ 'script': 'sub'}, { 'script': 'super' }],
-      [{ 'indent': '-1'}, { 'indent': '+1' }], 
-    ]
-  }
+  
 
   newBlog(){
     this.editor = true
