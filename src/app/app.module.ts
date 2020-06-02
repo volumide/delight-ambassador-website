@@ -55,7 +55,6 @@ import { ImagecardComponent } from './imagecard/imagecard.component';
 
   schemas: [
     NO_ERRORS_SCHEMA,
-    CUSTOM_ELEMENTS_SCHEMA
   ],
   imports: [
     BrowserModule,
