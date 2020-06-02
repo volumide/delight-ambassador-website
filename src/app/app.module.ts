@@ -18,7 +18,7 @@ import { environment } from 'src/environments/environment';
 // import {AngularFireStorageModule} from '@angular/fire/storage';
 import { AdminComponent } from './admin/admin.component'
 
-import { QuillModule, QUILL_CONFIG_TOKEN } from 'ngx-quill';
+import { QuillModule } from 'ngx-quill';
 import { FormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
 import { BlogadminComponent } from './blogadmin/blogadmin.component';
