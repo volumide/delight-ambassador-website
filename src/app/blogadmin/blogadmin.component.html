@@ -33,7 +33,7 @@
 							  <input type="file" class="form-control-file" name="" id="" placeholder=""  (change) = "imageUpload($event)">
 							</div>
 
-							<quill-editor class="mb-4" [styles] = 'editorStyle' [modules] = 'config' [(ngModel)]="data.content" name= 'blog'></quill-editor>
+							<quill-editor class="mb-4"  [(ngModel)]="data.content" name= 'blog'></quill-editor>
 						</form>
 
 						<button class="btn mt-3 mb-3 btn-primary btn-sm px-5" (click)="createContent()" [disabled] = 'loading'>Publish</button>
