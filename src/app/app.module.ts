@@ -60,7 +60,7 @@ import { ImagecardComponent } from './imagecard/imagecard.component';
     // AngularFireStorageModule,
     AppRoutingModule,
     FormsModule,
-    QuillModule.forRoot(QUILL_CONFIG_TOKEN.ngInjectableDef),
+    QuillModule.forRoot(),
     RouterModule,
     HttpClientModule
   ],
