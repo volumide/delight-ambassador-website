@@ -9,7 +9,8 @@ import { Upload } from '../upload';
   selector: 'app-blogadmin',
   templateUrl: './blogadmin.component.html',
   styleUrls: ['./blogadmin.component.scss'],
-  providers: [Upload]
+  providers: [Upload],
+  
 })
 export class BlogadminComponent implements OnInit {
 

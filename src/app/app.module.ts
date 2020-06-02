@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -50,9 +50,13 @@ import { ImagecardComponent } from './imagecard/imagecard.component';
     LeadersadminComponent,
     AdminNavigationComponent,
     GallaryadminComponent,
-    ImagecardComponent
+    ImagecardComponent,
   ],
 
+  schemas: [
+    NO_ERRORS_SCHEMA,
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
   imports: [
     BrowserModule,
     // AngularFireModule.initializeApp(environment.config, 'delight-ambassador'),
