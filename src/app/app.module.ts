@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule} from '@angular/core';
+import { NgModule, InjectionToken} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +31,14 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ImagecardComponent } from './imagecard/imagecard.component';
 
+// export const counterReducer = createReducer(initialState,
+//   on(increment, state => state + 1),
+//   on(decrement, state => state - 1),
+//   on(reset, state => 0),
+// );
+
+// export const ROOT_REDUCER = new InjectionToken<any>('Root Reducer');
+export const ROOT_REDUCER = new InjectionToken<any>('Root Reducer');
 
 @NgModule({
   declarations: [
@@ -60,12 +68,27 @@ import { ImagecardComponent } from './imagecard/imagecard.component';
     // AngularFireStorageModule,
     AppRoutingModule,
     FormsModule,
-    QuillModule.forRoot(),
+    QuillModule.forRoot({
+      modules: {
+        toolbar: [
+          ['bold', 'italic', 'underline'],
+          [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+          ['link'],
+          [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+          [{ 'script': 'sub'}, { 'script': 'super' }],
+          [{ 'indent': '-1'}, { 'indent': '+1' }],
+        ],
+      },
+    }),
     RouterModule,
     HttpClientModule
   ],
 
-  providers: [],
+  providers: [{
+    provide: ROOT_REDUCER, useValue: {
+
+    }
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,3 @@
-import { BlogcontrolService } from './blogcontrol.service';
-import { Bloginterface } from './bloginterface';
-
 export class Upload {
 	
 	imageUpload(event:any){
