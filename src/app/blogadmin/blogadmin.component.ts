@@ -5,6 +5,7 @@ import { Observable } from 'rxjs'
 import { isNull } from 'util';
 import { Upload } from '../upload';
 
+
 @Component({
   selector: 'app-blogadmin',
   templateUrl: './blogadmin.component.html',
@@ -18,6 +19,7 @@ export class BlogadminComponent implements OnInit {
     height: 'calc(100vh - 500px)',
     border: "none"
   };
+
 
   text:string
   textObject:string
@@ -60,6 +62,7 @@ export class BlogadminComponent implements OnInit {
   public blogContent
 
   constructor(public service : BlogcontrolService, public upload: Upload ) { 
+
     // this.createContent()
     this.getAllContents()
     // this.updateContent()

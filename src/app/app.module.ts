@@ -12,13 +12,12 @@ import { BlogComponent } from './blog/blog.component';
 import { BlogDetailsComponent } from './blog-details/blog-details.component';
 
 // firbase configurations
-import { environment } from 'src/environments/environment';
+// import { environment } from 'src/environments/environment';
 // import {AngularFireModule} from '@angular/fire';
 // import {AngularFirestoreModule} from '@angular/fire/firestore';
 // import {AngularFireStorageModule} from '@angular/fire/storage';
 import { AdminComponent } from './admin/admin.component'
 
-import { QuillModule } from 'ngx-quill';
 import { FormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
 import { BlogadminComponent } from './blogadmin/blogadmin.component';
@@ -30,6 +29,8 @@ import { GallaryadminComponent } from './gallaryadmin/gallaryadmin.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ImagecardComponent } from './imagecard/imagecard.component';
+import {QuillModule} from 'ngx-quill'
+import { config } from 'rxjs';
 
 // export const counterReducer = createReducer(initialState,
 //   on(increment, state => state + 1),
@@ -63,25 +64,11 @@ export const ROOT_REDUCER = new InjectionToken<any>('Root Reducer');
 
   imports: [
     BrowserModule,
-    // AngularFireModule.initializeApp(environment.config, 'delight-ambassador'),
-    // AngularFirestoreModule,
-    // AngularFireStorageModule,
     AppRoutingModule,
     FormsModule,
-    QuillModule.forRoot({
-      modules: {
-        toolbar: [
-          ['bold', 'italic', 'underline'],
-          [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-          ['link'],
-          [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-          [{ 'script': 'sub'}, { 'script': 'super' }],
-          [{ 'indent': '-1'}, { 'indent': '+1' }],
-        ],
-      },
-    }),
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    QuillModule.forRoot()
   ],
 
   providers: [{
