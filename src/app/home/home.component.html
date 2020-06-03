@@ -53,7 +53,20 @@
 					</div>
 				</div>
 			</div>
+
 			
+			<div class="col-12 pt-5 pb-5" *ngIf="profiles.length">
+				<h3 class="mx-auto mb-2 text-center">Leaders</h3>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row" *ngIf="profiles.length">
+			<div class="col-md-4 mb-4" *ngFor="let image of profiles">
+				<app-imagecard [image] = 'image'></app-imagecard>
+			</div>
 		</div>
 	</div>
 </div>

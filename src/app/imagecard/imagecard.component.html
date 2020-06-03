@@ -1,8 +1,12 @@
-<div class="card rounded-0">
-	<!-- <img src={{image.src}} *ngIf="expression"> -->
-	<img src={{image.picture}} alt="">
+<div class="card-container">
+	<div class="img-card rounded-0">
+		<div class="img">
+			<img src={{image.picture}} alt="">
+		</div>
+	</div>
+		<p class="text-center font-weight-bold"> {{image.name}} </p>
+		<p class="text-center"> {{image.office}} </p>
+		<p class="text-center "> {{image.caption}} </p>
+		<p class="text-center"> {{image.title}} </p>
 </div>
-<p class=""> {{image.name}} </p>
-<p class=""> {{image.office}} </p>
-<p class=""> {{image.caption}} </p>
-<p class=""> {{image.title}} </p>
+

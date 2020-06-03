@@ -1,12 +1,28 @@
 <app-navbar></app-navbar>
-<div class="container">
-	<div class="blog-container" [routerLink]="['/blog/content']" >
-		<div class="thumbnail">
-			<img src="https://cf.ltkcdn.net/family/images/std/200821-425x283-family.jpg" alt="" srcset="">
-		</div>
-		<div class="description">
-			kdk
+<div class="body">
+	<div class="container ">
+		<div class="row">
+			<div class="col-md-8 ">
+				<div class="mt-5 mb-5" *ngFor="let blog of blogContent">
+					<h2>{{blog.title}}</h2>
+					<div class="card-container">
+						<div class="img-card rounded-0">
+							<div class="img">
+								<img [src]="blog.picture" alt="" srcset="">
+							</div>
+						</div>
+						<p class="pl-5 pt-3"> {{blog.title}} <br>
+							<small  [innerHTML] = 'convert(blog.created_at)'></small>
+						 </p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<h3>Latest Article</h3>
+
+			</div>
 		</div>
 	</div>
-	
+	<app-footer></app-footer>
 </div>
+

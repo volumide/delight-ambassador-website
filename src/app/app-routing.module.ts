@@ -32,6 +32,7 @@ const routes: Routes = [
   { path: 'admin/blog', component: BlogadminComponent },
   { path: 'admin/event', component: EventadminComponent },
   { path: 'admin/gallery', component: GallaryadminComponent },
+  { path: 'admin/profile', component: LeadersadminComponent },
   { path: 'guild', component: GuildlinesComponent },
   { path: 'events', component: EventsComponent },
   { path: 'teams', component: UnitsComponent },
