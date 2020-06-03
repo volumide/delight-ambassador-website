@@ -1,14 +1,38 @@
-<div class="navigation">
+<div class="bg">
 	<div class="container">
-		<div class="logo">
-			<img src="../assets/logo.png" alt="" srcset="">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="logo">
+					<img src="../assets/logo.png" alt="" srcset="" class="img-fluid">
+				</div>
+			</div>
+			<div class="col-md-8">
+
+				<ul class="nav justify-content-end">
+					<li class="nav-item">
+					<li class="nav-item" >
+
+						<a class="nav-link"  [routerLink]="['/home']" routerLinkActive="active"  >Home</a>
+
+					</li>
+					<li class="nav-item">
+
+					  <a class="nav-link" [routerLink]="['/about']" routerLinkActive="active" >About</a>
+
+					</li>
+					<li class="nav-item">
+
+					  <a class="nav-link" [routerLink]="['/gallery']" routerLinkActive="active" >Gallery</a>
+
+					</li>
+					<li class="nav-item">
+
+					  <a class="nav-link" aria-disabled="true" [routerLink]="['/blog']" routerLinkActive="active">Blog</a>
+
+					</li>
+				  </ul>
+			</div>
+			
 		</div>
-		<ul>
-			<li [routerLink]="['/home']" routerLinkActive="active" >
-				Home</li>
-			<li [routerLink]="['/about']" routerLinkActive="active" >About</li>
-			<li [routerLink]="['/gallery']" routerLinkActive="active" >Gallery</li>
-			<li [routerLink]="['/blog']" routerLinkActive="active" >Blog</li>
-		</ul>
 	</div>
 </div>

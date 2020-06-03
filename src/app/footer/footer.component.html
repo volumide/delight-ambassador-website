@@ -1,35 +1,46 @@
 <div class="footer">
-	<div class="container">
-		<div>
-			<p>Site Links</p>
-			<ul>
-				<li>Literature section</li>
-				<li>Archives</li>
-				<li>Picture Gallery</li>
-				<li>Membership</li>
-				<li>Support</li>
-				<li>Gifts and Talents</li>
-			</ul>
+	<div class="container pt-4 pb-4">
+		<div class="row">
+			<div class="col-md-6">
+				<p>Site Links</p>
+				<ul>
+					<li [routerLink]="['/events']">Events and Projects</li>
+					<li [routerLink]="['/guild']">Guildlines</li>
+					<li [routerLink]="['/gallery']">Picture Gallery</li>
+					<li [routerLink]="['/']">Contact</li>
+					<li [routerLink]="['/teams']">Team</li>
+					<li [routerLink]="['/']">Gifts and Talents</li>
+				</ul>
+			</div>
+			
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-12">
+						<p>Social Media</p>
+					</div>
+					<div class="col-12">
+						<ul>
+							<li>
+								<a href="http://" target="_blank" rel="noopener noreferrer">twitter</a>
+							</li>
+			
+							<li>
+								<a href="http://" target="_blank" rel="noopener noreferrer">facebook</a> 
+							</li>
+			
+							<li>
+								<a href="http://" target="_blank" rel="noopener noreferrer">instagram</a> 
+							</li>
+			
+							<li>
+								<a href="http://" target="_blank" rel="noopener noreferrer">chat us on whatsapp</a> 
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div>
-			<p>Social Media</p>
-			<ul>
-				<li> 
-					<a href="http://" target="_blank" rel="noopener noreferrer">twitter</a>
-				</li>
 
-				<li>
-					<a href="http://" target="_blank" rel="noopener noreferrer">facebook</a> 
-				</li>
-
-				<li>
-					<a href="http://" target="_blank" rel="noopener noreferrer">instagram</a> 
-				</li>
-
-				<li>
-					<a href="http://" target="_blank" rel="noopener noreferrer">chat us on whatsapp</a> 
-				</li>
-			</ul>
-		</div>
+		
 	</div>
 </div>

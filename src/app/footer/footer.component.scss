@@ -3,26 +3,29 @@ p{
 	font-weight: bold;
 	font-size: medium;
 	margin-bottom: 3px;
+	color: rgb(214, 214, 214);
 }
 
 .footer{
 	padding: 20px;
-	background: rgba(0,0,0,.9);
+	background: rgb(87, 0, 87);
 	color:  var(--text-color);
 }
 
-.container{
-	display: flex;
-	justify-content: space-between;
-}
+// .container{
+// 	display: flex;
+// 	justify-content: space-between;
+// }
 
 a{
-	color: var(--text-color);
+	color: #fff;
 	text-decoration: underline;
 }
-
-@media(max-width: 799px){
-	.container{
-		padding: 0;
-	}
+li{
+	color:#fff;
 }
+// @media(max-width: 799px){
+// 	.container{
+// 		padding: 0;
+// 	}
+// }

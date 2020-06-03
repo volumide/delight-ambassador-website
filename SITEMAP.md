@@ -108,3 +108,31 @@ To equip and raise young people of Purpose and distinction in this crowded gener
 - Membership
 - Support
 - Gifts and Talents
+
+
+DE LIGHT AMBASSADORS (DLA)
+ 
+DLA IDEATION TEAM
+  Hello beautiful People of God, I welcome you to De Light Ambassadors Family and it is my earnest prayer that as you join us your relationship with God will continue to grow and blossom as we learn from and love each other as God has commanded us.
+    De Light Ambassadors as a family has a unit called the Ideation Team. Well as the name implies, the team consists of people per excellence who are dedicated to serving God and bringing up ideas to enhance the growth of the DLA family as a whole. The Ideation team has a total of 16 people currently who put their all into their service to God, to the DLA family and to humanity in general. Some of the members are also leaders of subteams. The ideation team has five subteams which include The Welfare Subteam, The Follow-up Subteam, The Prayer Subteam, The Database Subteam and The Sunday Special Subteam. Each subteam has a number of responsibilities which are carried out by the members of the subteam lead by their leaders. Above all the unspoken motto of the Ideation team is Love and this also applies to the Dla family in general.
+ 
+DLA WELFARE SUBTEAM
+    The welfare team is a branch of the Ideation Team. The Welfare team is responsible for welcoming new members and getting their details. We are also responsible for sending motivational, educational and spiritual messages to Dla members individually. The welfare team also posts birthdays, congratulatory messages as a way of expressing genuine love for all members. Occasionally, we also organize give-away to encourage the members of Dla. Above all, the welfare team cares about the general health, happiness, safety and wellbeing of all members of Dla.
+ 
+DLA FOLLOW UP SUBTEAM
+    The Follow-up team is a branch of the Dla Ideation Team. The Follow-up subteam is responsible for getting information across to all De-Light Ambassadors, fixing up people who would facilitate each of our weekly programs (Dining with the King and Echoes of Realities). The Follow up subteam consists of proactive members who are committed to God’s love and service to His children.
+ 
+ 
+DLA SUNDAY SPECIAL SUBTEAM
+      The Sunday Special subteam is a team composed of people who love God. The team has a set of creative individuals with innovative ideas which are all for the Kingdom. The team has a couple of proficient members led by Ambassadors Addo Praise and Omosebi Omotolani.
+      The Sunday Specials sessions feature the following activities: Quiz, Interviews, Rhema conversations, Spirit uproar, Debates, Talks on different aspects of life and many more. The Sunday Special team is responsible for all Sunday activities like asking questions on topics like bible and inspirational topic and there is also interview segment, debate, sharing materials like spiritual books, videos and audios as well.
+      
+ DLA Prayer Team
+DLA prayer team is one of the unique sub-teams of the DLA Ideation Team. The team is charged with raising young people who are fervent in the place of Prayer. We are on high alert about things going on with our spiritual growth and development. We do team up with people, praying along with them to achieve divine purposes. 
+
+Our desire is to see a generation living up to a standard that pleases God. Above all, we hope to create an atmosphere drawing people closer to the place of strength, being spiritually alert, deep in the place of prayer and having depth of intimacy and fellowship with God .
+ 
+DLA DATA BASE TEAM
+Great Ambassadors of the kingdom, I sincerely count you lucky to find yourself among the body of Christ, Delight Ambassadors. 
+
+DLA has a sub unit called the DATABASE TEAM, under the Ideation team jurisdiction. This group consists of dedicated members who put in their best to see many come to Christ, by creating ads to invite non-members to join the train. We also ensure that we have the data of all members provided by the Follow-up team to check on members and celebrate their special days. As you move on aboard this train, I assure you that together, we shall fulfill purpose.

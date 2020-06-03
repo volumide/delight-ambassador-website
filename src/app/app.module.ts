@@ -10,12 +10,6 @@ import { AboutComponent } from './about/about.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogDetailsComponent } from './blog-details/blog-details.component';
-
-// firbase configurations
-// import { environment } from 'src/environments/environment';
-// import {AngularFireModule} from '@angular/fire';
-// import {AngularFirestoreModule} from '@angular/fire/firestore';
-// import {AngularFireStorageModule} from '@angular/fire/storage';
 import { AdminComponent } from './admin/admin.component'
 
 import { FormsModule } from '@angular/forms';
@@ -29,17 +23,10 @@ import { GallaryadminComponent } from './gallaryadmin/gallaryadmin.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ImagecardComponent } from './imagecard/imagecard.component';
-import {QuillModule} from 'ngx-quill'
-import { config } from 'rxjs';
-
-// export const counterReducer = createReducer(initialState,
-//   on(increment, state => state + 1),
-//   on(decrement, state => state - 1),
-//   on(reset, state => 0),
-// );
-
-// export const ROOT_REDUCER = new InjectionToken<any>('Root Reducer');
-export const ROOT_REDUCER = new InjectionToken<any>('Root Reducer');
+import {QuillModule} from 'ngx-quill';
+import { EventsComponent } from './events/events.component';
+import { GuildlinesComponent } from './guildlines/guildlines.component';
+import { UnitsComponent } from './units/units.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +47,9 @@ export const ROOT_REDUCER = new InjectionToken<any>('Root Reducer');
     AdminNavigationComponent,
     GallaryadminComponent,
     ImagecardComponent,
+    EventsComponent,
+    GuildlinesComponent,
+    UnitsComponent,
   ],
 
   imports: [
@@ -71,11 +61,7 @@ export const ROOT_REDUCER = new InjectionToken<any>('Root Reducer');
     QuillModule.forRoot()
   ],
 
-  providers: [{
-    provide: ROOT_REDUCER, useValue: {
-
-    }
-  }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

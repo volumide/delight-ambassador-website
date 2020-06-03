@@ -3,201 +3,94 @@
 	<div class="welcome-container links" id="link" [ngStyle]="{background: isShow ? 'rgb(211, 11, 211)' : '#fff'}" >
 		<div class="container">
 			<ul [ngStyle]="{color: isShow ? '#fff' : '#000'}">
-				<li (click)="scrollToview('aims')" >aims</li>
-				<li (click)="scrollToview('strategy')">strategy</li>
-				<li (click)="scrollToview('guild')">guidlines</li>
-				<li (click)="scrollToview('projects')">projects</li>
-				<li (click)="scrollToview('activity')">activities</li>
-				<li (click)="scrollToview('units')">units</li>
+				<li [routerLink]="['/guild']"> guidlines </li>
+				<li [routerLink]="['/events']"> Events & projects</li>
+				<li [routerLink]="['/teams']">units </li>
 			</ul>
 		</div>
 	</div>
-	<div class="welcome-container">
+	<div class="mb-2">
 		<div class="container">
-			<h3><i class="fa fa-info-circle" aria-hidden="true"></i> About Us</h3>
-			<p>
-				De-light Ambassadors Int’l is a global impact organization borne out of a strong passion for young people, especially Teenagers, Adolescents and Young Adults; to break them from the societal status-quo, and help them to discover and manifest their original essence (Purpose) to the fullest, through strategic mentorship. 
-			</p>
-			<p>
-				The organization set out with two members in the year 2015 at the prestigious University of Lagos, through a clear divine inspiration to illuminate this generation. Since her inception however, the organization has been making diverse impacts amongst the young people through strategic mentorship programmes across the Nation Nigeria. 
-			</p>
+			<div class="row">
+				<div class="col-12 mb-3 mt-3">
+					<h3>About Us</h3>
+				</div>
+				<div class="col-12 mb-5">
+					<p>
+						De-light Ambassadors Int’l is a global impact organization borne out of a strong passion for young people, especially Teenagers, Adolescents and Young Adults; to break them from the societal status-quo, and help them to discover and manifest their original essence (Purpose) to the fullest, through strategic mentorship. 
+					</p>
+					<p>
+						The organization set out with two members in the year 2015 at the prestigious University of Lagos, through a clear divine inspiration to illuminate this generation. Since her inception however, the organization has been making diverse impacts amongst the young people through strategic mentorship programmes across the Nation Nigeria. 
+					</p>
+				</div>
+			</div>
 		</div>
 	</div>
 
 	<!-- aims -->	
-	<div class="welcome-container" id="aims">
+	<div class="pb-2 bg-white pt-5" id="aims">
 		<div class="container">
 			<div class="row">
-				<div class="col">
-					<h3> <i class="fa fa-crosshairs" aria-hidden="true"></i> AIMS AND OBJECTIVES</h3>
-						<ul>
-							<li>
-								To provide aids for young people in all aspects of their lives through strategic mentorship.
-							</li>
-							<li>To help young people find and fulfill their purpose in life.</li>
-							<li>To assist young people in choosing and building a strong and solid career in life.</li>
-							<li>To guide young people in the discovery, development and maximum usage of their Gifts, Talents and potentials.</li>
-							<li>To equip the young people with knowledge required to journey through life in the place if values, discipline, motivation and related virtues.</li>
-							<li>To raise leaders who would be useful individually and for the society at large.</li>
-						</ul>
-						
+				<div class="col-12 mb-3 mt-3">
+					<h3> AIMS AND OBJECTIVES</h3>
 				</div>
-				<div class="col img">
+				<div class="col-12 mb-5">
+					<ul>
+						<li>
+							To provide aids for young people in all aspects of their lives through strategic mentorship.
+						</li>
+						<li>To help young people find and fulfill their purpose in life.</li>
+						<li>To assist young people in choosing and building a strong and solid career in life.</li>
+						<li>To guide young people in the discovery, development and maximum usage of their Gifts, Talents and potentials.</li>
+						<li>To equip the young people with knowledge required to journey through life in the place if values, discipline, motivation and related virtues.</li>
+						<li>To raise leaders who would be useful individually and for the society at large.</li>
+					</ul>
+				</div>
+				<!-- <div class="col img">
 					<img src="../assets/aims.jpg" alt="" srcset="">
-				</div>
+				</div> -->
 			</div>
 				
 		</div>
 	</div>
 
-	<div class="welcome-container" id="strategy">
+	<!-- strategy -->
+	<div class="pt-5 pb-5" id="strategy">
 		<div class="container">
 			<div class="row">
-				<div class="col img">
-					<img src="../assets/strategy.jpg" alt="" srcset="">
+				<div class="col-12">
+					<h3 >OUR OPERATIONAL STRATEGIES</h3>
 				</div>
-				<div class="col pad">
-					<h3 > <i class="fas fa-lightbulb" aria-hidden="true"></i> OUR OPERATIONAL STRATEGIES</h3>
-						<ul>
-							<li>
-								Both the facilitators and members shall bear the name Ambassador (e.g. Ambassador AY).
-							</li>
-							<li>
-								Online Mentorship; Whatsapp, Facebook, blog etc.(through strategic teachings by facilitators on different topical issues of life; spiritual, academics, career, financial, relationships, etc.)
-							</li>
-							<li>
-								Magazine production and strategic deployment.
-							</li>
-							<li>
-								Team grouping of young people among our facilitators for a consistent follow-up.
-							</li>
-							<li>
-								Unit set up for various levels of services and talent utility unto the Kingdom and humanity.
-							</li>
-							<li>
-								Teens' Missions (Outreaches to schools, orphanage homes, hospitals, churches etc.)
-							</li>
-							<li>
-								Networking with other groups or organizations.
-							</li>
-							<li>
-								Network for more facilitators and sponsors in different locations and countries.
-							</li>
-							<li>
-								Academic scholarships and prizes to our members based on agreed criteria by the facilitators.
-							</li>
-						</ul>
-				</div>
-			</div>
-				
-		</div>
-	</div>
-
-	<div class="welcome-container" id="guild">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<h3> <i class="fa fa-file" aria-hidden="true"></i> GUIDELINES FOR FACILITATORS</h3>
+				<div class="col-12">
 					<ul>
-						<li>Must be a true believer in Christ Jesus.</li>
-						<li>Must be purpose driven.</li>
-						<li>Must have genuine passion for young people.</li>
-						<li>Must be ready to abide with the organizational rules of DLA.</li>
-						<li>Must be ready to be committed to the mission and vision of DLA.</li>
-						<li>Must be ready to commit to the programmes financially.</li>
-						<li>Must have good track records.</li>
-						<li>Must have a clear direction on career and acts of responsibilities.</li>
+						<li>
+							Both the facilitators and members shall bear the name Ambassador (e.g. Ambassador AY).
+						</li>
+						<li>
+							Online Mentorship; Whatsapp, Facebook, blog etc.(through strategic teachings by facilitators on different topical issues of life; spiritual, academics, career, financial, relationships, etc.)
+						</li>
+						<li>
+							Magazine production and strategic deployment.
+						</li>
+						<li>
+							Team grouping of young people among our facilitators for a consistent follow-up.
+						</li>
+						<li>
+							Unit set up for various levels of services and talent utility unto the Kingdom and humanity.
+						</li>
+						<li>
+							Teens' Missions (Outreaches to schools, orphanage homes, hospitals, churches etc.)
+						</li>
+						<li>
+							Networking with other groups or organizations.
+						</li>
+						<li>
+							Network for more facilitators and sponsors in different locations and countries.
+						</li>
+						<li>
+							Academic scholarships and prizes to our members based on agreed criteria by the facilitators.
+						</li>
 					</ul>
-				</div>
-				<div class="col img">
-					<img src="../assets/facilitator.jpg" alt="" srcset="">
-				</div>
-			</div>
-				
-		</div>
-	</div>
-
-	<div class="welcome-container">
-		<div class="container">
-			<div class="row">
-				<div class="col img">
-					<img src="../assets/member.jpg" alt="" srcset="">
-				</div>
-				<div class="col pad">
-					<h3 > <i class="fa fa-file-archive" aria-hidden="true"></i> GUIDELINES FOR MEMBERS</h3>
-					<ul>
-						•Must be a young person between the ages of 9 and 24. (A member who joined before age 24 who is now above still remains a member).
-						<li>Must be willing to be mentored.
-						<li>Must be teachable with open heart.
-						<li>Must have a desire for positive change.
-						<li>Must be willing to share his or her issues with the facilitators.
-						<li>Must have a Leadership mindset and mentality.
-					</ul>
-				</div>
-			</div>
-				
-		</div>
-	</div>
-
-	<div class="welcome-container" id="projects">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<h3> <i class="fa fa-tasks" aria-hidden="true"></i> OUR PROPOSED & ON-GOING PROJECTS</h3>
-					<ul>
-						<li> of DLA website.</li>
-						<li>DLA periodic Magazine.</li>
-						<li>Award of Academic Scholarships for members.</li>
-						<li>Production of customized Shirts.</li>
-						<li>Networking with other people for facilitation in other locations and countries.</li>
-						<li>Facilitators and members' get together event.</li>
-					</ul>
-				</div>
-				<div class="col img">
-					<img src="../assets/project.jpg" alt="" srcset="">
-				</div>
-			</div>
-				
-		</div>
-	</div>
-
-	<div class="welcome-container" id="activity">
-		<div class="container">
-			<div class="row">
-				<div class="col img">
-					<img src="../assets/activity.jpg" alt="" srcset="">
-				</div>
-				<div class="col pad">
-					<h3 > <i class="fa fa-history" aria-hidden="true"></i> CURRENT ACTIVITIES
-					</h3>
-					<ul>
-						<li>DLA Awake Gatherings (Physical & Online, Periodic)</li>
-						<li>Dinning with the King (Online, Thursdays)</li>
-						<li>Echoes of Realities (Online, Saturdays)</li>
-						<li>Sunday Specials (Online, Sundays)</li>
-					</ul>
-				</div>
-			</div>
-				
-		</div>
-	</div>
- 
-	<div class="welcome-container" id="units">
-		<div class="container">
-			
-			<div class="row">
-				<div class="col">
-					<h3> <i class="fa fa-users" aria-hidden="true"></i> CURRENTS TEAMS & UNITS</h3>
-					<ul>
-						<li>DLA Prayer Sub Team</li>
-						<li>DLA Follow-up Sub Team</li>
-						<li>DLA Welfare Sub Team</li>
-						<li>DLA Database Sub Team</li>
-						<li>DLA Sunday Special Sub Team</li>
-					</ul>
-				</div>
-				<div class="col img">
-					<img src="../assets/teams.jpg" alt="" srcset="">
 				</div>
 			</div>
 				
