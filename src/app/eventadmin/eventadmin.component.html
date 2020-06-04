@@ -1,32 +1,27 @@
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-2 px-0 bg-dark">
-			<div class="sticky">
-				<app-admin-navigation></app-admin-navigation>
+		<div class="col-12 pt-5 pb-5">
+			<h2 class="text-center">EVENT AND ACTIVITY</h2>
+		</div>
+		<div class="col-md-2">
+			<div class="col-12 bg-white pt-3 pb-3 bg-white mb-5  mb-5">
+				<ul class="">
+					<li class="nav-item" [routerLink]="['/admin']">
+						<a class="nav-link">Dashboard</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" (click)="newEvents()">Create New Event</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" (click)="manageEvents()">Manage Events</a>
+					</li>
+				</ul>
 			</div>
 		</div>
-		<div class="col-10">
+		<div class="col-md-10">
 			<div class="row">
-				
-				<!-- header -->
-				<div class="col-12 bg-light mb-5">
-					<ul class="nav justify-content-center">
-						<li class="nav-item">
-							<a class="nav-link active" (click)="newEvents()">Create New Event</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" (click)="manageEvents()">Manage Events</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-12" *ngIf="newEvent">
-					<h4 class="text-center">
-						Create New Event
-					</h4>
-				</div>
-
 				<!-- form -->
-				<div class="col-md-8 mx-auto" *ngIf="newEvent" >
+				<div class="col-12" *ngIf="newEvent" >
 					<form action="">
 						<div class="form-group">
 						  <label for="title">Event Title</label>
@@ -42,7 +37,7 @@
 						  <label for="">Upload event flyer</label>
 						  <input type="file" (change) = "imageUpload($event)" class="form-control-file rounded-0 border-0" name="" id="" aria-describedby="helpId" placeholder="">
 						</div>
-						<button class="btn btn-primary rounded-0 mt-3" (click)="createNewEvent()"  [disabled] = 'loading' >Publish Event</button>
+						<button class="btn bg-light rounded-0" (click)="createNewEvent()"  [disabled] = 'loading' >Publish Event</button>
 					</form>
 				</div>
 				
@@ -50,7 +45,7 @@
 				<div class="col-md-6 mt-3 mb-3" *ngFor="let event of allevents">
 					<div *ngIf="events">
 						<app-imagecard [image] = 'event'></app-imagecard>
-						<button class="btn btn-primary rounded-0" (click)="deleteEvent(event.id)" >Delete Event</button>
+						<button class="btn bg-light mt-3 form-control rounded-0" (click)="deleteEvent(event.id)" >Delete Event</button>
 					</div>
 					
 				</div>

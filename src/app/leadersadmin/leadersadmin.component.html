@@ -1,26 +1,26 @@
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-2 px-0 bg-dark">
-			<div class="sticky">
-				<app-admin-navigation></app-admin-navigation>
+		<div class="col-12 pt-5 pb-5">
+			<h2 class="text-center">LEADERSHIP MANAGEMENT</h2>
+		</div>
+		<div class="col-md-2">
+			<div class="col-12 bg-white pt-3 pb-3">
+				<ul class="nav">
+					<li class="nav-item" [routerLink]="['/admin']">
+						<a class="nav-link">Dashboard</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" (click)="showCreateProfile()" >Create profile</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" (click)= "showAllProfile()">Profiles</a>
+					</li>
+				</ul>
 			</div>
 		</div>
-		<div class="col-10">
+		<div class="col-md-10">
 			<div class="row">
-				<div class="col-12 bg-light">
-					<ul class="nav justify-content-center">
-						<li class="nav-item">
-							<a class="nav-link active" (click)="showCreateProfile()" >Create profile</a>
-						</li>
-						<!-- <li class="nav-item">
-							<a class="nav-link active" (click) = "showManageProfile()" >Manage profile</a>
-						</li> -->
-						<li class="nav-item">
-							<a class="nav-link" (click)= "showAllProfile()">Profiles</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-md-8 pt-5" *ngIf="newProfile" >
+				<div class="col-md-12" *ngIf="newProfile" >
 					<form action="">
 						<div class="form-group">
 						  <label for="title">Leader Name</label>
@@ -36,13 +36,13 @@
 						  <label for="">Upload leader's picture</label>
 						  <input type="file" (change) ="imageUpload($event)" class="form-control-file rounded-0 border-0" name="" id="" aria-describedby="helpId" placeholder="">
 						</div>
-						<button class="btn btn-primary rounded-0 mt-3" (click)="createProfile()">Publish Event</button>
+						<button class="btn bg-light rounded-0" (click)="createProfile()">Publish Event</button>
 					</form>
 				</div>
-				<div class="col-md-4 pt-5" *ngFor="let profile of profiles" >
+				<div class="col-md-4" *ngFor="let profile of profiles" >
 					<div *ngIf="allProfiles" >
 						<app-imagecard [image] = 'profile' ></app-imagecard>
-						<button class="btn btn-primary rounded-0" (click) = 'deleteProfile(profile.id)'[disabled] = 'loading'>delete</button>
+						<button class="btn bg-light mt-3 form-control rounded-0" (click) = 'deleteProfile(profile.id)'[disabled] = 'loading'>delete</button>
 					</div>
 				</div>
 			</div>

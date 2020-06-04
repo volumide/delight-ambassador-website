@@ -1,1 +1,24 @@
-<p>admin works!</p>
+<div class="div bg-white pt-5 body">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 pt-5 pb-5">
+				<h2 class="text-center">DASHBOARD</h2>
+			</div>
+			<div class="col-md-4">
+				<app-card [content] = 'blog' [routerLink]="['/admin/blog']"></app-card>
+			</div>
+			<div class="col-md-4">
+				<app-card [content] = 'profile' [routerLink]="['/admin/profile']"></app-card>
+			</div>
+			<div class="col-md-4">
+				<app-card [content] = 'events' [routerLink]="['/admin/event']"></app-card>
+			</div>
+			<div class="col-md-4">
+				<app-card [content] = 'gallery' [routerLink]="['/admin/gallery']"></app-card>
+			</div>
+			<div class="col-md-4">
+				<app-card [content] = 'comment'	></app-card>
+			</div>
+		</div>
+	</div>
+</div>

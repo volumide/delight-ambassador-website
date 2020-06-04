@@ -4,19 +4,10 @@
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
 
 *{
-	// border: solid 1px grey;
 	margin:0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Jost', sans-serif;
-	--primary-color: rgba(220,20,60, .8);
-	--secondary-color: rgb(255, 255, 255);
-	--header-color: rgb(34, 35, 37);
-	--text-color: rgb(122, 125, 133);
-	--main-spacing: 15px;
-	--standard-spacing: 10px;
-	--inline-spacing: 5px;
-	line-height: 1.7em;
 }
 
 h3{
@@ -27,12 +18,13 @@ h3{
 .bg-light{
 	background: rgba(204, 5, 204, .1) !important ;	
 }
+
 .bg-white{
 	background: rgba(206, 206, 206, 0.1) !important ;
 }
 
 p{
-	color: var(--text-color)
+	color: rgba(122, 125, 133);
 }
 
 .body{
@@ -54,7 +46,6 @@ img{
 	object-fit: cover;
 }
 
-
 .img-card{
 	.img{
 		position: relative;
@@ -71,6 +62,14 @@ img{
 	width: 100%;
 	box-shadow: 1px 2px 5px 0 rgba(0, 0, 0, 0.2);
 }
+
+input{
+	border: 1px solid rgba(122, 125, 133, .3) !important;
+	outline: 0 !important;
+	box-shadow: none !important;
+}
+
+
 
 
 

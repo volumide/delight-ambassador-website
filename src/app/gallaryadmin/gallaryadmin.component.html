@@ -1,27 +1,28 @@
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-2 px-0 bg-dark">
-			<div class="sticky">
-				<app-admin-navigation></app-admin-navigation>
+		<div class="col-12 pt-5 pb-5">
+			<h2 class="text-center">Gallery</h2>
+		</div>
+		<div class="col-md-2">
+				<!-- headers -->
+			<div class="col-12 bg-white pt-3 pb-3 mb-5  mb-5">
+				<ul class="nav ">
+					<li class="nav-item" [routerLink]="['/admin']">
+						<a class="nav-link">Dashboard</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" (click)="addNewImage()">Add new image</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" (click)="manageAllImage()">Manage Gallery</a>
+					</li>
+				</ul>
 			</div>
 		</div>
-		<div class="col-10">
+		<div class="col-md-10">
 			<div class="row">
-
-				<!-- headers -->
-				<div class="col-12 bg-light">
-					<ul class="nav justify-content-center">
-						<li class="nav-item">
-							<a class="nav-link active" (click)="addNewImage()">Add new image</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" (click)="manageAllImage()">Manage Gallery</a>
-						</li>
-					</ul>
-				</div>
-
 				<!-- form -->
-				<div class="col-md-9 mx-auto pt-5" *ngIf="newImage" >
+				<div class="col-md-12" *ngIf="newImage" >
 					<form>
 						<!-- input -->
 						<div class="form-group">
@@ -36,15 +37,15 @@
 							class="form-control rounded-0" name="" placeholder="Image caption" [(ngModel)]="data.caption" name ='caption'>
 						</div>
 
-						<button class="btn btn-primary rounded-0" (click)="uploadNewImage()" [disabled] = 'loading'>Upload Picture</button>
+						<button class="btn bg-light rounded-0" (click)="uploadNewImage()" [disabled] = 'loading'>Upload Picture</button>
 					</form>
 				</div>
 
 				<!-- management -->
-				<div class="col-md-4 pt-5" *ngFor="let image of allImages" >
+				<div class="col-md-4 mb-5" *ngFor="let image of allImages" >
 					<div *ngIf="allimage" >
 						<app-imagecard [image] = 'image'></app-imagecard>
-						<button class="btn btn-primary form-control" (click)="deleteImage(image.id)">Delete</button>
+						<button class="btn bg-light mt-3 form-control" (click)="deleteImage(image.id)">Delete</button>
 					</div>
 				</div>
 			</div>
