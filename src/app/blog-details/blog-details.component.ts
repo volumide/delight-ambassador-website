@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { BlogcontrolService } from '../blogcontrol.service';
 
 @Component({
   selector: 'app-blog-details',
@@ -7,7 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogDetailsComponent implements OnInit {
 
-  constructor() { }
+  content: any
+  constructor(public router: ActivatedRoute, public service : BlogcontrolService) { 
+    router.paramMap.subscribe(res => {{
+      let title = res['params'].id.split('@')[1].split('-').join(' ')
+      this.service.getBlogByTitle(title).toPromise()
+      .then(res => {
+        this.content = res['data']
+        console.log(this.content)
+      }).catch(err => {
+        console.log(err)
+      })
+    }})
+  }
 
   ngOnInit() {
   }

@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'blog', component: BlogComponent },
-  { path: 'blog/content', component: BlogDetailsComponent },
+  { path: 'blog/content/:id', component: BlogDetailsComponent },
   { path: 'admin/blog', component: BlogadminComponent },
   { path: 'admin/event', component: EventadminComponent },
   { path: 'admin/gallery', component: GallaryadminComponent },

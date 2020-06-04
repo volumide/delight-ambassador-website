@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogcontrolService } from '../blogcontrol.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blog',
@@ -9,7 +10,7 @@ import { BlogcontrolService } from '../blogcontrol.service';
 export class BlogComponent implements OnInit {
 
   blogContent:any = []
-  constructor(public service : BlogcontrolService) { this.getAllContents() }
+  constructor(public service : BlogcontrolService, public route: Router) { this.getAllContents() }
 
   ngOnInit() {
   }
@@ -22,6 +23,15 @@ export class BlogComponent implements OnInit {
       },
       err => console.error(err.error)
     )
+  }
+
+  redirect(ev:any){
+    ev = 2
+    this.route.navigate(['admin', 'content', 1])
+  }
+
+  split(url){
+    return '@'+''+url.split(' ').join('-')
   }
 
   convert(date:any){

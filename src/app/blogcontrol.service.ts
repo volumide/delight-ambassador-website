@@ -48,6 +48,10 @@ export class BlogcontrolService {
     return this.http.get(this.shortUrl('blog/', id))
   }
 
+  getBlogByTitle(title:any){
+    return this.http.get(this.shortUrl('blog/by/', title))
+  }
+
   deleteBlogById(id:any){
     return this.http.delete(this.shortUrl('delete/blog/', id))
   }

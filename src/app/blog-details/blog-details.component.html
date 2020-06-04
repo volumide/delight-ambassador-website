@@ -1,25 +1,31 @@
 <app-navbar></app-navbar>
-<div class="container">
-	<div class="image-container">
-		<div class="img">
-			<img src="https://cf.ltkcdn.net/family/images/std/200821-425x283-family.jpg" alt="" srcset="">
+<div class="container" *ngIf ='content'>
+	<div class = 'row pt-5'> 
+		<div class="col-12">
+			<div class="image-container">
+				<div class="img">
+					<img src="{{content.picture}}" alt="" srcset="">
+				</div>
+				<div class="meta">
+					lorem
+				</div>
+			</div>
+		
+			<div class="blog-content">
+				<div class="title">
+					{{content.title}}
+				</div>
+				<div class="content" [innerHTML] = 'content.content'>
+				</div>
+			</div>
 		</div>
-		<div class="meta">
-			lorem
+		
+	
+		<div class="comments">
+			<h3>Comments</h3>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium cumque
 		</div>
 	</div>
-
-	<div class="blog-content">
-		<div class="title">
-			lorem
-		</div>
-		<div class="content">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sit, eligendi inventore ad assumenda ipsam quae. Est cumque mollitia rerum ab saepe dicta laboriosam reprehenderit eius nihil. Facilis, minima corrupti.Asperiores distinctio rem cum architecto voluptate quos eos tempora excepturi in, repellendus magnam nam maiores ea veritatis nihil accusantium ipsam? Impedit soluta nulla nihil molestiae id distinctio temporibus vitae cupiditate!
-		</div>
-	</div>
-
-	<div class="comments">
-		<h3>Comments</h3>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium cumque
-	</div>
+	
+	
 </div>

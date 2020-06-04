@@ -4,16 +4,18 @@
 		<div class="row">
 			<div class="col-md-8 ">
 				<div class="mt-5 mb-5" *ngFor="let blog of blogContent">
-					<h2>{{blog.title}}</h2>
-					<div class="card-container">
-						<div class="img-card rounded-0">
-							<div class="img">
-								<img [src]="blog.picture" alt="" srcset="">
+					<div [routerLink]="['/blog/content', split(blog.title)]" routerLinkActive="router-link-active" > 
+						<h2>{{blog.title}}</h2>
+						<div class="card-container">
+							<div class="img-card rounded-0">
+								<div class="img">
+									<img [src]="blog.picture" alt="" srcset="">
+								</div>
 							</div>
+							<p class="pl-5 pt-3"> {{blog.title}} <br>
+								<small  [innerHTML] = 'convert(blog.created_at)'></small>
+							</p>
 						</div>
-						<p class="pl-5 pt-3"> {{blog.title}} <br>
-							<small  [innerHTML] = 'convert(blog.created_at)'></small>
-						 </p>
 					</div>
 				</div>
 			</div>
