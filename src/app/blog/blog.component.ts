@@ -25,11 +25,6 @@ export class BlogComponent implements OnInit {
     )
   }
 
-  redirect(ev:any){
-    ev = 2
-    this.route.navigate(['admin', 'content', 1])
-  }
-
   split(url){
     return '@'+''+url.split(' ').join('-')
   }

@@ -104,7 +104,7 @@ export class BlogcontrolService {
   }
 
   getAllComment(){
-    return this.http.get(this.shortUrl('all/comment'))
+    return this.http.get(this.shortUrl('all/comments'))
   }
 
   deleteCommentById(id:any){

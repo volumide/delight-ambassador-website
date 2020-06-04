@@ -9,5 +9,6 @@ export interface Bloginterface {
 	"content"? 	: string,
 	"title"? 	: string,
 	"password"? : any,
-	"caption"?: string
+	"caption"?: string,
+	"reference"? : string
 }

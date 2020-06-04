@@ -19,13 +19,29 @@
 				</div>
 			</div>
 		</div>
-		
-	
-		<div class="comments">
-			<h3>Comments</h3>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium cumque
+		<div class="col-12 mb-4">
+			<form action="">
+				<div class="form-group">
+				  <label for=""></label>
+				  <input type="text"
+					class="form-control rounded-0 bg-white" [(ngModel)]="data.alias" name="alias" id="" placeholder="name">
+				</div>
+				<quill-editor placeholder="Your comment here..." [modules] = 'modules' [styles]="{height: '150px', backgroundColor: 'rgba(206, 206, 206, 0.1)'}" [(ngModel)]="comment" name="comment"></quill-editor>
+				<div class="text-right">
+					<button (click)="postComment(content.id)" class="btn bg-light mt-4 ">Comment</button>
+				</div>
+			</form>
+		</div>
+		<div class="col-12 pb-5"> 
+			<div *ngFor="let comment of allcomment">
+				<div class="comments pb-2">
+					<small *ngIf="comment.alias">{{comment.alias}}</small>
+					<small *ngIf="!comment.alias">Anonymous</small>
+					<p [innerHTML] = 'comment.comment'></p>
+				</div>
+			</div>
+			
 		</div>
 	</div>
-	
-	
 </div>
+<app-footer></app-footer>

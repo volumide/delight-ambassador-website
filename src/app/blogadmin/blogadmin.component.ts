@@ -47,11 +47,7 @@ export class BlogadminComponent implements OnInit {
     title : ""
   }
 
-  public comments: Bloginterface = {
-    alias : "",
-    blog_id : "",
-    comment : "",
-  }
+  allcomment : object[]
 
   public caption = {
     name: "",
@@ -59,16 +55,22 @@ export class BlogadminComponent implements OnInit {
     caption : ""
   }
 
-  public blogContent
+  modules = {
+    toolbar: [
+      ['bold', 'italic', 'underline', 'strike'],
+      [{ 'indent': '-1'}, { 'indent': '+1' }], 
+      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+    ]
+  }
+
+  public blogContent: []
 
   constructor(public service : BlogcontrolService, public upload: Upload ) { 
-
-    // this.createContent()
     this.getAllContents()
-    // this.updateContent()
-    // this.getContent()
-    // this.deleteContent()
+    this.getAllComments()
   }
+
 
   imageUpload(event:any){
     this.image = this.upload.imageUpload(event)
@@ -76,7 +78,6 @@ export class BlogadminComponent implements OnInit {
   
   createContent(){
 		try {
-
       let formData = this.upload.formData(this.image)
 
 			this.service.uploadImage(formData).toPromise()
@@ -112,13 +113,13 @@ export class BlogadminComponent implements OnInit {
   }
 
   getAllContents(){
-    this.service.getAllBlog().subscribe(
-      res => {
-        console.log(res['data'])
+    this.service.getAllBlog().toPromise()
+    .then(
+      res =>{
         this.blogContent = res['data']
-      },
-      err => console.error(err.error)
-    )
+      } 
+      ,err => console.error(err.error)
+    ).catch(err => console.log(err))
   }
 
   updateContent(){
@@ -156,19 +157,24 @@ export class BlogadminComponent implements OnInit {
 
   getAllComments(){
     this.service.getAllComment().subscribe(
-      res => console.log(res),
+      res => {
+        // console.log(res)
+        this.allcomment = res['data']
+        // console.log
+        // (this.allcomment)
+      },
       err => console.error(err.error)
     )
   }
 
-  deleteComment(){
-    this.service.deleteLeaderProfileById(2).subscribe(
-      res => console.log(res),
+  deleteComment(id){
+    this.service.deleteCommentById(id).subscribe(
+      res => {
+        this.getAllComments()
+      },
       err => console.log(err.error)
     )
   }
-
-  
 
   newBlog(){
     this.editor = true
