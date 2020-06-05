@@ -40,6 +40,9 @@ export class BlogadminComponent implements OnInit {
   comment = false
   loading: boolean = false
   image = ''
+  error: boolean = false
+  success: boolean = false
+  message: string = ''
 
   public data: Bloginterface = {
     content : "",
@@ -77,38 +80,42 @@ export class BlogadminComponent implements OnInit {
   }
   
   createContent(){
-		try {
-      let formData = this.upload.formData(this.image)
-
-			this.service.uploadImage(formData).toPromise()
-			.then(res => {
-			console.log(res)
-				if(isNull(res)){
-					this.data.picture = null
-				}else{
-					this.data.picture = res['url']
-				}
-			})
-			.then(()=>{
-				this.processData()
-			})
-			.catch(err => console.log(err))
-		} catch (error) {
-			console.log(error)
-		}
-		
+    if (isNull(this.data.content || typeof this.data.content || isNull(this.data.title || typeof this.data.title == 'undefined'))) {
+      this.message = "Title or content cannotshould not be left empty"
+      return
+    }else{
+        let formData = this.upload.formData(this.image)
+        this.service.uploadImage(formData).toPromise()
+        .then(res => {
+          if(isNull(res)){
+            this.data.picture = null
+          }else{
+            this.data.picture = res['url']
+          }
+        })
+        .then(()=>{
+          this.processData()
+        })
+        .catch(err => console.log(err))
+      } 
   }
 
   processData(){
     this.service.createBlog(this.data).toPromise()
     .then(res => {
-		console.log(res)
+    console.log(res)
+    this.success = true
+    this.error = false
+    this.message = "Aritcle created"
 		this.data.content = ""
 		this.data.title = ""
     this.data.picture = ""
     this.getAllContents()
     }).catch(err =>{
-      console.log(err)
+      this.error = true
+      this.success = false
+      this.message = "Title and content cannot be left empty"
+      // console.log(err)
     })
   }
 

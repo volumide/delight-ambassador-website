@@ -23,6 +23,12 @@
 				<!-- form -->
 				<div class="col-12" *ngIf="newEvent" >
 					<form action="">
+						<div class="alert alert-warning" *ngIf="error">
+							{{message}}	
+						</div>
+						<div class="alert alert-info" *ngIf="success">
+							{{message}}	
+						</div>
 						<div class="form-group">
 						  <label for="title">Event Title</label>
 						  <input type="text" name="" id="title" name="title" class="form-control rounded-0" placeholder="" aria-describedby="helpId" [(ngModel)]="data.title">
@@ -30,7 +36,8 @@
 						
 						<div class="form-group">
 							<label for="summary">Event Brief</label>
-							<textarea class="form-control rounded-0" name="summary" id="summary" rows="3" [(ngModel)]="data.content"></textarea>
+							<quill-editor [styles] = "{height: '200px'}" [(ngModel)]="data.content" name="summary" [modules] = 'module'></quill-editor>
+							<!-- <textarea class="form-control rounded-0" name="summary" id="summary" rows="3" ></textarea> -->
 						</div>
 
 						<div class="form-group">

@@ -16,10 +16,13 @@ export class LeadersadminComponent implements OnInit {
   manageProfile: boolean = false
   allProfiles: boolean = false
   loading: boolean = false
+  message: string = ''
+  error: boolean = false
+  success: boolean = false
   data : Bloginterface = {
-    name: "Ajala",
+    name: "",
     picture : "",
-    office : "Teanager organizer"
+    office : ""
   }
 
   profiles: any
@@ -53,13 +56,17 @@ export class LeadersadminComponent implements OnInit {
   processProfile(){
     this.service.createLeaderProfile(this.data).toPromise().
     then(res => {
-      console.log(res)
+      this.success = true
+      this.error = false
+      this.message = "Profile created"
         this.data.name = ''
         this.data.office = ''
         this.data.picture = ''
         this.getAllProfiles()
     }).catch(err =>{
-      console.log(err)
+      this.error = true
+      this.success = false
+      this.message = "leader name and office cannot be left empty"
     })
   }
 

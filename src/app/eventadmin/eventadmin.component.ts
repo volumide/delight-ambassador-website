@@ -12,12 +12,15 @@ import { Upload } from '../upload';
 })
 export class EventadminComponent implements OnInit {
 
-  constructor(public service : BlogcontrolService, public upload: Upload) { }
+  message: string = ''
+  error: boolean = false
+  success: boolean = false
   loading: boolean = false
+
   data : Bloginterface = {
-    title: "Ajala",
+    title: "",
     picture : "",
-    content : "Teanager organizer"
+    content : ""
   }
   image = ''
 
@@ -25,11 +28,20 @@ export class EventadminComponent implements OnInit {
   events:boolean = false
   allevents: any
 
+  module = {
+    toolbar :''
+  }
+  constructor(public service : BlogcontrolService, public upload: Upload) { }
+  
   imageUpload(event:any){
     this.image = this.upload.imageUpload(event)
   }
 
   createNewEvent(){
+    if(this.data.title == ' ' || isNull(this.data.content) || this.data.content == ' ' || typeof this.data.content == 'undefined'){
+      console.log('error')
+      return
+    }
     try {
       let formData = this.upload.formData(this.image)
 
@@ -54,12 +66,17 @@ export class EventadminComponent implements OnInit {
     this.loading = true
     this.service.createEvent(this.data).toPromise()
     .then(res => {
+        this.success = true
+        this.error = false
+        this.message = "Event created"
         this.getallEvents()
         this.data.title = ""
         this.data.content = ""
         this.data.picture = ""
     }).catch(err =>{
-      console.log(err)
+      this.error = true
+      this.success = false
+      this.message = "leader name and office cannot be left empty"
     })
     this.loading = false
   }
