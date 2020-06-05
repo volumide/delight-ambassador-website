@@ -11,7 +11,7 @@ export class ServiceNameService {
 })
 export class BlogcontrolService {
 
-  url = "http://localhost/delight-backend/public/api/"
+  url = "https://delightambassadors.com/delightapi/public/api"
   
   constructor(public http: HttpClient) { }
 
