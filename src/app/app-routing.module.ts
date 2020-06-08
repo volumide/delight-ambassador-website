@@ -15,6 +15,7 @@ import { GuildlinesComponent } from './guildlines/guildlines.component';
 import { EventsComponent } from './events/events.component';
 import { UnitsComponent } from './units/units.component';
 import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'events', component: EventsComponent },
   { path: 'teams', component: UnitsComponent },
   { path: 'admin', component: AdminComponent },
+  { path: 'admin/login', component: LoginComponent },
 
   
 ];

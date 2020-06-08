@@ -3,6 +3,7 @@ import { Bloginterface} from '../bloginterface';
 import { BlogcontrolService } from '../blogcontrol.service';
 import { isNull } from 'util';
 import { Upload } from '../upload';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-leadersadmin',
@@ -19,6 +20,8 @@ export class LeadersadminComponent implements OnInit {
   message: string = ''
   error: boolean = false
   success: boolean = false
+  key = localStorage.getItem('delightAccessKey');
+
   data : Bloginterface = {
     name: "",
     picture : "",
@@ -27,8 +30,12 @@ export class LeadersadminComponent implements OnInit {
 
   profiles: any
 
-  constructor(public service : BlogcontrolService, public upload: Upload) { 
+  constructor(public route: Router, public service : BlogcontrolService, public upload: Upload) { 
     // this.createProfile()
+    if(!this.key){
+      this.route.navigate(['admin/login'], {replaceUrl: true})
+      return
+    }
     this.getAllProfiles()
   }
 
@@ -37,20 +44,34 @@ export class LeadersadminComponent implements OnInit {
   }
 
   createProfile(){
-    let formData = this.upload.formData(this.image)
-
-    this.service.uploadImage(formData).toPromise()
-    .then(res => {
-      if(isNull(res)){
-        this.data.picture = null
-      }else{
-        this.data.picture = res['url']
-      }
-    })
-    .then(()=>{
-      this.processProfile()
-    })
-    .catch(err => console.log(err))
+    this.loading = true
+   
+    
+    if (this.data.name === '' || this.data.office === '') {
+      this.error = true
+      this.message = "Title or office should not be left empty"
+      this.loading = false
+      return
+    }
+    else{
+      let formData = this.upload.formData(this.image)
+      this.service.uploadImage(formData).toPromise()
+      .then(res => {
+        if(isNull(res)){
+          this.data.picture = null
+        }else{
+          this.data.picture = res['url']
+        }
+      })
+      .then(()=>{
+        this.processProfile()
+        this.loading = false
+      })
+      .catch(err => {
+        this.loading = false
+        console.log(err)
+      })
+    }
   }
 
   processProfile(){

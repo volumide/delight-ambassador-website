@@ -3,6 +3,7 @@ import { Bloginterface} from '../bloginterface';
 import { BlogcontrolService } from '../blogcontrol.service';
 import { isNull } from 'util';
 import { Upload } from '../upload';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-eventadmin',
@@ -16,6 +17,7 @@ export class EventadminComponent implements OnInit {
   error: boolean = false
   success: boolean = false
   loading: boolean = false
+  key = localStorage.getItem('delightAccessKey');
 
   data : Bloginterface = {
     title: "",
@@ -31,18 +33,25 @@ export class EventadminComponent implements OnInit {
   module = {
     toolbar :''
   }
-  constructor(public service : BlogcontrolService, public upload: Upload) { }
+  constructor(public route: Router, public service : BlogcontrolService, public upload: Upload) { 
+    if(!this.key){
+      this.route.navigate(['admin/login'], {replaceUrl: true})
+      return
+    }
+  }
   
   imageUpload(event:any){
     this.image = this.upload.imageUpload(event)
   }
 
   createNewEvent(){
-    if(this.data.title == ' ' || isNull(this.data.content) || this.data.content == ' ' || typeof this.data.content == 'undefined'){
-      console.log('error')
+    this.loading = true
+    if(this.data.title == '' || isNull(this.data.content) || typeof this.data.content == 'undefined'){
+      this.error = true
+      this.message = 'event brief and title cannot be left empty'
+      this.loading = false
       return
-    }
-    try {
+    }else{
       let formData = this.upload.formData(this.image)
 
 			this.service.uploadImage(formData).toPromise()
@@ -54,11 +63,13 @@ export class EventadminComponent implements OnInit {
 				}
 			})
 			.then(()=>{
-				this.processEvent()
+        this.processEvent()
+        this.loading = false
 			})
-			.catch(err => console.log(err))
-    } catch (error) {
-      
+			.catch(err => {
+        this.error = true
+        this.message = 'cannot conect to the databse at this momment try again'
+      })
     }
   }
 
@@ -76,7 +87,7 @@ export class EventadminComponent implements OnInit {
     }).catch(err =>{
       this.error = true
       this.success = false
-      this.message = "leader name and office cannot be left empty"
+      this.message = "title and brief cannot be left empty"
     })
     this.loading = false
   }

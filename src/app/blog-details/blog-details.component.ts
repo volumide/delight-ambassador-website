@@ -37,6 +37,7 @@ export class BlogDetailsComponent implements OnInit {
 
       this.service.getBlogByTitle(title).toPromise()
       .then(res => {
+        console.log(res['data'], res['writter'])
         this.content = res['data']
         localStorage.setItem('reference', this.content.title)
       })

@@ -4,6 +4,7 @@ import {Bloginterface} from '../bloginterface'
 import { Observable } from 'rxjs'
 import { isNull } from 'util';
 import { Upload } from '../upload';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -68,8 +69,13 @@ export class BlogadminComponent implements OnInit {
   }
 
   public blogContent: []
+  key = localStorage.getItem('delightAccessKey');
 
-  constructor(public service : BlogcontrolService, public upload: Upload ) { 
+  constructor(public route: Router, public service : BlogcontrolService, public upload: Upload ) { 
+    if(!this.key){
+      this.route.navigate(['admin/login'], {replaceUrl: true})
+      return
+    }
     this.getAllContents()
     this.getAllComments()
   }
@@ -80,8 +86,11 @@ export class BlogadminComponent implements OnInit {
   }
   
   createContent(){
-    if (isNull(this.data.content || typeof this.data.content || isNull(this.data.title || typeof this.data.title == 'undefined'))) {
+    this.loading = true
+    if (isNull(this.data.content) || typeof this.data.content == 'undefined' || isNull(this.data.title) || typeof this.data.title == 'undefined') {
+      this.error = true
       this.message = "Title or content cannotshould not be left empty"
+      this.loading = false 
       return
     }else{
         let formData = this.upload.formData(this.image)
@@ -95,13 +104,17 @@ export class BlogadminComponent implements OnInit {
         })
         .then(()=>{
           this.processData()
+          this.loading = false
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+          this.loading = false
+          console.log(err)
+        })
       } 
   }
 
   processData(){
-    this.service.createBlog(this.data).toPromise()
+    this.service.createBlog(this.data, 123456).toPromise()
     .then(res => {
     console.log(res)
     this.success = true

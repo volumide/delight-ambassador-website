@@ -11,7 +11,8 @@ export class ServiceNameService {
 })
 export class BlogcontrolService {
 
-  url = "https://delightambassadors.com/delightapi/public/api/"
+  // url = "https://delightambassadors.com/delightapi/public/api/"
+  url = "http://localhost/delightapi/public/api/"
   
   constructor(public http: HttpClient) { }
 
@@ -31,9 +32,9 @@ export class BlogcontrolService {
   }
 
   // blog api consumation
-  createBlog(data:any){
+  createBlog(data:any, code){
     let header = this.headers()
-    return this.http.post(`${this.url}create/blog`, data )
+    return this.http.post(`${this.url}create/blog/${code}`, data )
   }
 
   updateBlog(data: any, id :any){
@@ -75,6 +76,10 @@ export class BlogcontrolService {
 
   deleteLeaderProfileById(id:any){
     return this.http.delete(this.shortUrl('remove/leader/profile/', id))
+  }
+
+  login(id:any){
+    return this.http.post(this.shortUrl('login/', id), '')
   }
 
   //Event api consumation

@@ -3,6 +3,7 @@ import { Bloginterface} from '../bloginterface';
 import { BlogcontrolService } from '../blogcontrol.service';
 import { isNull } from 'util';
 import { Upload } from '../upload';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gallaryadmin',
@@ -16,13 +17,21 @@ export class GallaryadminComponent implements OnInit {
   newImage:boolean = true
   image = ''
   loading:boolean
+  message: string = ''
 
   data : Bloginterface = {
     caption: "",
     picture : "",
   }
   allImages: object[]
-  constructor(public service : BlogcontrolService, public upload: Upload) {
+  key = localStorage.getItem('delightAccessKey');
+
+  constructor( public route: Router, public service : BlogcontrolService, public upload: Upload) {
+
+    if(!this.key){
+      this.route.navigate(['admin/login'], {replaceUrl: true})
+      return
+    }
     this.getallGalleryImages()
    }
 
@@ -34,6 +43,7 @@ export class GallaryadminComponent implements OnInit {
   }
 
   uploadNewImage(){
+    this.loading = true
     let formData = this.upload.formData(this.image)
 
     this.service.uploadImage(formData).toPromise()
@@ -46,22 +56,25 @@ export class GallaryadminComponent implements OnInit {
     })
     .then(()=>{
       this.processImage()
+      this.loading = false
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+      this.loading = false
+    })
   }
 
   processImage(){
-    this.loading = true
     this.service.uploadGalleryImage(this.data).toPromise()
     .then(res => {
         // console.log(res)
         this.data.caption = ""
         this.data.picture = ""
+        this.message = 'Upload successfull'
         this.getallGalleryImages()
     }).catch(err =>{
-      console.log(err)
+      // console.log(err)
     })
-    this.loading = false
+    
   }
 
   getallGalleryImages(){
@@ -70,7 +83,9 @@ export class GallaryadminComponent implements OnInit {
       if (res['data']) {
         this.allImages = res['data']
       }
-    }).catch(err => err)
+    }).catch(err => {
+      
+    })
   }
 
   deleteImage(id:any){
@@ -79,7 +94,9 @@ export class GallaryadminComponent implements OnInit {
         console.log(res)
         this.getallGalleryImages()
       },
-      err => console.log(err)
+      err => {
+        // console.log(err)
+      }
     )
   }
 

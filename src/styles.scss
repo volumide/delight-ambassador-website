@@ -73,6 +73,50 @@ h2{
 	text-transform: capitalize;
 }
 
+.loader-cover{
+	position: fixed;
+	display: flex;
+	height: 100vh;
+	width: 100%;
+	z-index: 999;
+	width: 100;
+	background: #f512121a 
+}
+
+.loader {
+	margin: auto;
+	margin-top: 15	0px;
+
+	border: 5px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 5px solid rgba(1, 71, 92, .6);
+	width: 100px;
+	height:100px;
+	-webkit-animation: spin .5s linear infinite;
+	animation: spin .5s linear infinite;
+}
+
+.loader-btn {
+	
+	border: 3px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 3px solid rgba(1, 71, 92, .6);
+	width: 20px;
+	height:20px;
+	-webkit-animation: spin .5s linear infinite;
+	animation: spin .5s linear infinite;
+}
+  
+@-webkit-keyframes spin {
+0% { -webkit-transform: rotate(0deg); }
+100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+
 
 
 

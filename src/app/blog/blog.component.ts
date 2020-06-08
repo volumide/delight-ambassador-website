@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogcontrolService } from '../blogcontrol.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blog',
@@ -10,7 +9,11 @@ import { Router } from '@angular/router';
 export class BlogComponent implements OnInit {
 
   blogContent:any = []
-  constructor(public service : BlogcontrolService, public route: Router) { this.getAllContents() }
+  constructor(public service : BlogcontrolService) { 
+  
+    this.getAllContents() 
+  }
+
 
   ngOnInit() {
   }
@@ -20,6 +23,7 @@ export class BlogComponent implements OnInit {
       res => {
         console.log(res['data'])
         this.blogContent = res['data']
+        
       },
       err => console.error(err.error)
     )

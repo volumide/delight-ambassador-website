@@ -44,13 +44,26 @@
 
 					<quill-editor class="mb-4"  [(ngModel)]="data.content" name= 'blog' [modules] = 'modules'></quill-editor>
 				</form>
-
-				<button class="btn mt-3 mb-3  bg-light btn-sm px-5" (click)="createContent()" [disabled] = 'loading'>Publish</button>
+				
+				<button class="btn mt-3 mb-3 pt-2 pb-2  bg-white btn-sm px-5"  *ngIf = 'loading' >
+					<div class="col-12">
+						<div class="loader-btn"></div>
+					</div>
+				</button>
+				<button class="btn mt-3 mb-3  bg-light btn-sm px-5" (click)="createContent()" *ngIf = '!loading' >
+					Publish
+				</button>
 				<div class="preview" [innerHTML] = 'data.content'></div>
 			</div>
 
 			<div class="col-12" *ngIf="blog">
+				
 				<div class="row">
+					<div class="loader-cover" *ngIf = 'loading'>
+						<div class="col-12">
+							<div class="loader"></div>
+						</div>
+					</div>
 					<div class="col-md-6 mb-4" *ngFor="let blog of blogContent">
 						<app-imagecard [image] = 'blog'></app-imagecard>
 

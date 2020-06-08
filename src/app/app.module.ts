@@ -25,6 +25,7 @@ import {QuillModule} from 'ngx-quill';
 import { EventsComponent } from './events/events.component';
 import { GuildlinesComponent } from './guildlines/guildlines.component';
 import { UnitsComponent } from './units/units.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { UnitsComponent } from './units/units.component';
     EventsComponent,
     GuildlinesComponent,
     UnitsComponent,
+    LoginComponent,
   ],
 
   imports: [

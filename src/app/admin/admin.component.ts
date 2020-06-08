@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogcontrolService } from '../blogcontrol.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -8,6 +9,7 @@ import { BlogcontrolService } from '../blogcontrol.service';
 })
 export class AdminComponent implements OnInit {
 
+  loading :boolean = true
   blog = {
     title: "Blog",
     description: "all blog records here",
@@ -37,8 +39,12 @@ export class AdminComponent implements OnInit {
     description: "all gallery records here",
     count: ""
   }
-
-  constructor(public service: BlogcontrolService) { 
+  key = localStorage.getItem('delightAccessKey');
+  constructor(public route: Router, public service: BlogcontrolService) { 
+    if(!this.key){
+      this.route.navigate(['admin/login'], {replaceUrl: true})
+      return
+    }
     this.countAll()
   }
 
@@ -51,6 +57,7 @@ export class AdminComponent implements OnInit {
         this.events.count = res['event']
         this.gallery.count= res['gallery']
         this.comment.count = res['comment']
+        this.loading = false
       },
       err => console.error(err))
   }
