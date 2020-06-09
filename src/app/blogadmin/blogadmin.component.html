@@ -67,7 +67,7 @@
 					<div class="col-md-6 mb-4" *ngFor="let blog of blogContent">
 						<app-imagecard [image] = 'blog'></app-imagecard>
 
-						<button class="btn bg-light mt-3 form-control " (click)="deleteContent(blog.id)" [disabled] = 'loading'>Delete</button>
+						<button class="btn bg-light mt-3 form-control " (click)="deleteContent(blog.id)" [disabled] = 'loading' *ngIf="admin">Delete</button>
 					</div>
 				</div>
 			</div>
@@ -82,7 +82,8 @@
 							blog reference: {{comment.reference}}
 						</small>
 					</div>
-					<div class="col-md-2">
+
+					<div class="col-md-2" *ngIf="admin">
 						<button class=" btn bg-light rounded-0" (click)="deleteComment(comment.id)">remove comment</button>
 					</div>
 					<hr>

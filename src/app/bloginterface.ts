@@ -10,5 +10,7 @@ export interface Bloginterface {
 	"title"? 	: string,
 	"password"? : any,
 	"caption"?: string,
-	"reference"? : string
+	"reference"? : string,
+	'loginCode'? : string,
+	'about'? : string
 }

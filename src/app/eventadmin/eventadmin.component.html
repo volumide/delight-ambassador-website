@@ -50,7 +50,9 @@
 							</div>
 						</button>
 						</div>
-						<button *ngIf = '!loading' class="btn bg-light rounded-0" (click)="createNewEvent()">Publish Event</button>
+						<div *ngIf="admin">
+							<button *ngIf = '!loading' class="btn bg-light rounded-0" (click)="createNewEvent()">Publish Event</button>
+						</div>
 					</form>
 				</div>
 				
@@ -58,7 +60,7 @@
 				<div class="col-md-6 mt-3 mb-3" *ngFor="let event of allevents">
 					<div *ngIf="events">
 						<app-imagecard [image] = 'event'></app-imagecard>
-						<button class="btn bg-light mt-3 form-control rounded-0" (click)="deleteEvent(event.id)" >Delete Event</button>
+						<button class="btn bg-light mt-3 form-control rounded-0" (click)="deleteEvent(event.id)" *ngIf="admin">Delete Event</button>
 					</div>
 					
 				</div>

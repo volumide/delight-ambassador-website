@@ -82,6 +82,18 @@ export class BlogcontrolService {
     return this.http.post(this.shortUrl('login/', id), '')
   }
 
+  admin(id:any){
+    return this.http.post(this.shortUrl('admin/', id), '')
+  }
+
+  writterAccess(id:any){
+    return this.http.put(this.shortUrl('give/write/access/', id), '')
+  }
+
+  removewritterAccess(id:any){
+    return this.http.put(this.shortUrl('revoke/write/access/', id), '')
+  }
+
   //Event api consumation
   createEvent(data:any){
     return this.http.post(`${this.url}create/event`, data)

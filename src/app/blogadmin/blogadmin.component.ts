@@ -70,6 +70,7 @@ export class BlogadminComponent implements OnInit {
 
   public blogContent: []
   key = localStorage.getItem('delightAccessKey');
+  admin = localStorage.getItem('delightStatus')
 
   constructor(public route: Router, public service : BlogcontrolService, public upload: Upload ) { 
     if(!this.key){
@@ -87,47 +88,59 @@ export class BlogadminComponent implements OnInit {
   
   createContent(){
     this.loading = true
-    if (isNull(this.data.content) || typeof this.data.content == 'undefined' || isNull(this.data.title) || typeof this.data.title == 'undefined') {
+    if (!this.key) {
       this.error = true
-      this.message = "Title or content cannotshould not be left empty"
+      this.message = "unauthorized to write"
       this.loading = false 
       return
-    }else{
-        let formData = this.upload.formData(this.image)
-        this.service.uploadImage(formData).toPromise()
-        .then(res => {
-          if(isNull(res)){
-            this.data.picture = null
-          }else{
-            this.data.picture = res['url']
-          }
-        })
-        .then(()=>{
-          this.processData()
-          this.loading = false
-        })
-        .catch(err => {
-          this.loading = false
-          console.log(err)
-        })
-      } 
+    }
+    if (isNull(this.data.content) || typeof this.data.content == 'undefined'  || this.data.title == '') {
+      this.error = true
+      this.message = "Title or content cannot not be left empty"
+      this.loading = false 
+      return
+    }
+    let formData = this.upload.formData(this.image)
+    this.service.uploadImage(formData).toPromise()
+    .then(res => {
+      if(isNull(res)){
+        this.data.picture = null
+      }else{
+        this.data.picture = res['url']
+      }
+    })
+    .then(()=>{
+      this.processData()
+      this.loading = false
+    })
+    .catch(err => {
+      this.loading = false
+      console.log(err)
+    })
+      
   }
 
   processData(){
-    this.service.createBlog(this.data, 123456).toPromise()
+    this.service.createBlog(this.data, this.key).toPromise()
     .then(res => {
-    console.log(res)
-    this.success = true
-    this.error = false
-    this.message = "Aritcle created"
-		this.data.content = ""
-		this.data.title = ""
-    this.data.picture = ""
-    this.getAllContents()
+    console.log(res['data'])
+    if (res['message']) {
+      this.success = true
+      this.error = false
+      this.message = res['message']
+      this.data.content = ""
+      this.data.title = ""
+      this.data.picture = ""
+      this.getAllContents()
+    }else{
+      this.error = true
+      this.message = res['message']
+    }
+   
     }).catch(err =>{
       this.error = true
       this.success = false
-      this.message = "Title and content cannot be left empty"
+      this.message = "Unable to create blog"
       // console.log(err)
     })
   }

@@ -39,6 +39,8 @@ export class AdminComponent implements OnInit {
     description: "all gallery records here",
     count: ""
   }
+
+  admin:any = ''
   key = localStorage.getItem('delightAccessKey');
   constructor(public route: Router, public service: BlogcontrolService) { 
     if(!this.key){
@@ -65,4 +67,8 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
   }
 
+  logout(){
+    localStorage.removeItem('delightAccessKey')
+    this.route.navigate(['admin/login'], {replaceUrl: true})
+  }
 }

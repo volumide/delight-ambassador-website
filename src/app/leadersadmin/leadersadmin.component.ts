@@ -21,11 +21,14 @@ export class LeadersadminComponent implements OnInit {
   error: boolean = false
   success: boolean = false
   key = localStorage.getItem('delightAccessKey');
+  admin = localStorage.getItem('delightStatus')
 
   data : Bloginterface = {
     name: "",
     picture : "",
-    office : ""
+    office : "",
+    loginCode: "",
+    about: ""
   }
 
   profiles: any
@@ -45,33 +48,31 @@ export class LeadersadminComponent implements OnInit {
 
   createProfile(){
     this.loading = true
-   
-    
-    if (this.data.name === '' || this.data.office === '') {
+    if (this.data.name === '' || this.data.office === '' || isNull(this.data.about) || typeof this.data.about == 'undefined' || this.data.loginCode == '') {
       this.error = true
-      this.message = "Title or office should not be left empty"
+      this.message = "Every input field is required"
       this.loading = false
       return
     }
-    else{
-      let formData = this.upload.formData(this.image)
-      this.service.uploadImage(formData).toPromise()
-      .then(res => {
-        if(isNull(res)){
-          this.data.picture = null
-        }else{
-          this.data.picture = res['url']
-        }
-      })
-      .then(()=>{
-        this.processProfile()
-        this.loading = false
-      })
-      .catch(err => {
-        this.loading = false
-        console.log(err)
-      })
-    }
+
+    let formData = this.upload.formData(this.image)
+    this.service.uploadImage(formData).toPromise()
+    .then(res => {
+      if(isNull(res)){
+        this.data.picture = null
+      }else{
+        this.data.picture = res['url']
+      }
+    })
+    .then(()=>{
+      this.processProfile()
+      this.loading = false
+    })
+    .catch(err => {
+      this.loading = false
+      console.log(err)
+    })
+    
   }
 
   processProfile(){
@@ -131,6 +132,24 @@ export class LeadersadminComponent implements OnInit {
         this.loading = false
       }
     )
+  }
+
+  writterPriviledge(id){
+    this.service.writterAccess(id).subscribe( res => {
+      console.log(res)
+      this.getAllProfiles()
+    }, err =>{
+      console.log(err)
+    })
+  }
+
+  revokewritterPriviledge(id){
+    this.service.removewritterAccess(id).subscribe( res => {
+      console.log(res)
+      this.getAllProfiles()
+    }, err =>{
+      console.log(err)
+    })
   }
 
   showCreateProfile(){

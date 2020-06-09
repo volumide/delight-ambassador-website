@@ -18,6 +18,7 @@ export class EventadminComponent implements OnInit {
   success: boolean = false
   loading: boolean = false
   key = localStorage.getItem('delightAccessKey');
+  admin = localStorage.getItem('delightStatus')
 
   data : Bloginterface = {
     title: "",

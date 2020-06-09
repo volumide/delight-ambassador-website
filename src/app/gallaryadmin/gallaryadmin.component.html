@@ -41,7 +41,9 @@
 								<div class="loader-btn"></div>
 							</div>
 						</button>
-						<button class="btn bg-light rounded-0" (click)="uploadNewImage()" *ngIf = '!loading'>Upload Picture</button>
+						<div *ngIf="admin">
+							<button class="btn bg-light rounded-0" (click)="uploadNewImage()" *ngIf = '!loading'>Upload Picture</button>
+						</div>
 					</form>
 				</div>
 
@@ -49,7 +51,7 @@
 				<div class="col-md-4 mb-5" *ngFor="let image of allImages" >
 					<div *ngIf="allimage" >
 						<app-imagecard [image] = 'image'></app-imagecard>
-						<button class="btn bg-light mt-3 form-control" (click)="deleteImage(image.id)">Delete</button>
+						<button class="btn bg-light mt-3 form-control" (click)="deleteImage(image.id)" *ngIf="admin">Delete</button>
 					</div>
 				</div>
 			</div>

@@ -19,9 +19,10 @@ export class BlogDetailsComponent implements OnInit {
     alias: "",
     blog_id: "",
     comment: "",
-    reference: ""
+    reference: "",
   }
   comment: string
+  writter
   content
   allcomment
 
@@ -39,6 +40,7 @@ export class BlogDetailsComponent implements OnInit {
       .then(res => {
         console.log(res['data'], res['writter'])
         this.content = res['data']
+        this.writter = res['writter']
         localStorage.setItem('reference', this.content.title)
       })
       .then(() =>{

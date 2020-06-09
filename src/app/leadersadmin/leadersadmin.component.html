@@ -25,6 +25,11 @@
 						<div class="col-md-12 alert alert-warning" *ngIf="error">
 							{{message}}	
 						</div>
+						<div class="form-group">
+							<label for="">Upload leader's picture</label>
+							<input type="file" (change) ="imageUpload($event)" class="form-control-file rounded-0 border-0" name="" id="" aria-describedby="helpId" placeholder="">
+						</div>
+					
 						<div class="col-md-12 alert alert-info" *ngIf="success">
 							{{message}}	
 						</div>
@@ -39,22 +44,34 @@
 						</div>
 
 						<div class="form-group">
-						  <label for="">Upload leader's picture</label>
-						  <input type="file" (change) ="imageUpload($event)" class="form-control-file rounded-0 border-0" name="" id="" aria-describedby="helpId" placeholder="">
+							<label for="accessCode">Login Code for Writting</label>
+							<input type="text" name="" placeholder="is the accesss code for writting purpose" id="office" name="title" class="form-control rounded-0" placeholder="" [(ngModel)]="data.loginCode">
 						</div>
-						<button class="btn mt-3 mb-3 pt-2 pb-2  bg-white btn-sm px-5"  *ngIf = 'loading' >
-							<div class="col-12">
-								<div class="loader-btn"></div>
-							</div>
-						</button>
-						<button class="btn bg-light rounded-0" (click)="createProfile()" *ngIf = '!loading'>Publish Event</button>
+
+						<div class="form-group">
+							<label for="accessCode">About</label>
+							<quill-editor placeholder="About is compulsory" [modules] = '{toolbar: ""}' [styles]="{height: '150px'}" [(ngModel)]="data.about" name="comment"></quill-editor>
+						</div>
+
+						<div *ngIf="admin" >
+							<button class="btn mt-3 mb-3 pt-2 pb-2  bg-white btn-sm px-5"  *ngIf = 'loading' >
+								<div class="col-12">
+									<div class="loader-btn"></div>
+								</div>
+							</button>
+							<button class="btn bg-light rounded-0" (click)="createProfile()" *ngIf = '!loading'>Publish Event</button>
+						</div>
 					</form>
 				</div>
 
 				<div class="col-md-4" *ngFor="let profile of profiles" >
 					<div *ngIf="allProfiles" >
 						<app-imagecard [image] = 'profile' ></app-imagecard>
-						<button class="btn bg-light mt-3 form-control rounded-0" (click) = 'deleteProfile(profile.id)'[disabled] = 'loading'>delete</button>
+						<div *ngIf="admin">
+							<button class="btn bg-light mt-3 form-control rounded-0" *ngIf="profile.writeAccess == 'yes'"  (click) = 'revokewritterPriviledge(profile.id)' [disabled] = 'loading'>Remove writer access</button>
+							<button class="btn bg-light mt-3 form-control rounded-0" *ngIf="profile.writeAccess == 'no'" (click) = 'writterPriviledge(profile.id)' [disabled] = 'loading'>Give writer access</button>
+							<button class="btn bg-light mt-3 form-control rounded-0" (click) = 'deleteProfile(profile.id)' [disabled] = 'loading'>delete</button>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -24,7 +24,8 @@ export class GallaryadminComponent implements OnInit {
     picture : "",
   }
   allImages: object[]
-  key = localStorage.getItem('delightAccessKey');
+  key = localStorage.getItem('delightAccessKey')
+  admin = localStorage.getItem('delightStatus')
 
   constructor( public route: Router, public service : BlogcontrolService, public upload: Upload) {
 

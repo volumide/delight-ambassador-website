@@ -7,15 +7,23 @@
 					<img src="{{content.picture}}" alt="" srcset="">
 				</div>
 				<div class="meta">
-					lorem
+					<p>
+						author: {{writter.name}}
+					</p>
 				</div>
 			</div>
 		
 			<div class="blog-content">
 				<div class="title">
-					{{content.title}}
+					<p>
+						{{content.title}}
+					</p>
+					
 				</div>
-				<div class="content" [innerHTML] = 'content.content'>
+				<div class="content">
+					<p [innerHTML] = 'content.content'>
+
+					</p>
 				</div>
 			</div>
 		</div>
@@ -44,15 +52,17 @@
 
 		<div class="col-12 pb-5">
 			<div class="row">
-				<div class="col-12">
-					<p>About the Author</p>
-				</div>
 				<div class="col-md-1 pb-5">
-					<img src="https://www.sciencealert.com/images/2018-06/processed/joanna-nix-625948-unsplash_1024.jpg" alt="" style="width: 30px; height: 30px; border-radius: 50%;" class="mr-auto">
+					<img [src]="writter.picture" alt="" style="width: 30px; height: 30px; border-radius: 50%;" class="mr-auto">
 					
 				</div>
-				<div class="col-md-11">
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati atque tenetur dolores recusandae aspernatur facere temporibus labore dolor maxime quam nostrum, molestiae reprehenderit necessitatibus aut quae sed ullam officiis aliquam.
+				<div class="col-md-11" >
+					<p>
+						{{writter.name}}
+					</p>
+					<p [innerHTML] = 'writter.about'>
+						
+					</p>
 				</div>
 			</div>
 		</div>
