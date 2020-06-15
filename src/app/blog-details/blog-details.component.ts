@@ -61,6 +61,8 @@ export class BlogDetailsComponent implements OnInit {
     this.service.postComment(this.data).toPromise()
     .then(res => {
       this.getArticleDetails()
+      this.data.alias = ''
+      this.comment = ''
     })
     .catch(err => {}
     )    

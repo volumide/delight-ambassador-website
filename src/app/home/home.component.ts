@@ -18,10 +18,10 @@ export class HomeComponent implements OnInit {
 
   getAllProfiles(){
    
-    this.service.getAllLeaders().subscribe(
+    this.service.getAllLeaderProfile().subscribe(
       res =>{
         this.allProfile = res['data']
-        if (this.allProfile.length < 1) {
+        if (!res['data']) {
           this.profiles = []
         }else if(this.allProfile.length > 3){
           let length = this.allProfile.length

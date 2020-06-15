@@ -4,12 +4,11 @@ export class Upload {
 		let image: any
 		if (event) {
 		  let size = Math.floor(event.target.files[0].size/1024)
-		  if (size >= 4029) {
+		  if (size >= 5001) {
 			image = null
 			return image
 		  }else{
 			image = event.target.files[0]
-			console.log(image)
 			return image
 		  }
 		}

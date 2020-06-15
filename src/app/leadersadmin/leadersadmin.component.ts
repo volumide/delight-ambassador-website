@@ -89,6 +89,7 @@ export class LeadersadminComponent implements OnInit {
         this.data.name = ''
         this.data.office = ''
         this.data.picture = ''
+        this.data.about = ''
         this.getAllProfiles()
     }).catch(err =>{
       this.error = true
