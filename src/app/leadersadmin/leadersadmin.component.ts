@@ -105,11 +105,9 @@ export class LeadersadminComponent implements OnInit {
   }
 
   getAllProfiles(){
-   
-    this.service.getAllLeaderProfile().subscribe(
+    this.service.getAllLeaders().subscribe(
       res =>{
         this.profiles = res['data']
-
       },
       err => {}
     )
