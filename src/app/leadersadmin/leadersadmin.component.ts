@@ -22,19 +22,20 @@ export class LeadersadminComponent implements OnInit {
   success: boolean = false
   key = localStorage.getItem('delightAccessKey');
   admin = localStorage.getItem('delightStatus')
+  publicCheck: string
 
   data : Bloginterface = {
     name: "",
     picture : "",
     office : "",
     loginCode: "",
-    about: ""
+    about: "",
+    public: "private",
   }
 
   profiles: any
 
   constructor(public route: Router, public service : BlogcontrolService, public upload: Upload) { 
-    // this.createProfile()
     if(!this.key){
       this.route.navigate(['admin/login'], {replaceUrl: true})
       return
@@ -44,6 +45,11 @@ export class LeadersadminComponent implements OnInit {
 
   imageUpload(event:any){
     this.image = this.upload.imageUpload(event)
+  }
+
+  makePublic(ev){
+    let event = ev.target.checked ? 'public' : 'private'
+    this.data.public = event
   }
 
   createProfile(){
@@ -70,7 +76,6 @@ export class LeadersadminComponent implements OnInit {
     })
     .catch(err => {
       this.loading = false
-      console.log(err)
     })
     
   }
@@ -94,8 +99,8 @@ export class LeadersadminComponent implements OnInit {
 
   updateProfile(){
     this.service.updateLeaderProfile(this.data, 2).subscribe(
-      res => console.log(res),
-      err => console.log(err)
+      res => {},
+      err => {}
     )
   }
 
@@ -104,18 +109,17 @@ export class LeadersadminComponent implements OnInit {
     this.service.getAllLeaderProfile().subscribe(
       res =>{
         this.profiles = res['data']
-        console.log(res)
 
       },
-      err => console.log(err)
+      err => {}
     )
     
   }
 
   getProfile(){
     this.service.getLeaderProfileById(2).subscribe(
-      res => console.log(res),
-      err => console.log(err)
+      res => {},
+      err => {}
     )
   }
 
@@ -123,12 +127,10 @@ export class LeadersadminComponent implements OnInit {
     this.loading = true
     this.service.deleteLeaderProfileById(id).subscribe(
       res => {  
-        console.log(res)
         this.getAllProfiles()
         this.loading = false
       },
       err => {
-        console.error(err)
         this.loading = false
       }
     )
@@ -136,19 +138,15 @@ export class LeadersadminComponent implements OnInit {
 
   writterPriviledge(id){
     this.service.writterAccess(id).subscribe( res => {
-      console.log(res)
       this.getAllProfiles()
     }, err =>{
-      console.log(err)
     })
   }
 
   revokewritterPriviledge(id){
     this.service.removewritterAccess(id).subscribe( res => {
-      console.log(res)
       this.getAllProfiles()
     }, err =>{
-      console.log(err)
     })
   }
 

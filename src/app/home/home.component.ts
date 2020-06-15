@@ -8,23 +8,62 @@ import { BlogcontrolService } from '../blogcontrol.service';
 })
 export class HomeComponent implements OnInit {
 
-  profiles :any = []
-
+  allProfile :any[] = []
+  profiles: any[] = []
+  blogContent: any[] 
   constructor(public service : BlogcontrolService) {
     this.getAllProfiles()
+    this.getAllContents()
    }
 
   getAllProfiles(){
    
-    this.service.getAllLeaderProfile().subscribe(
+    this.service.getAllLeaders().subscribe(
       res =>{
-        this.profiles = res['data']
-        console.log(this.profiles)  
-
+        this.allProfile = res['data']
+        if (this.allProfile.length < 1) {
+          this.profiles = []
+        }else if(this.allProfile.length > 3){
+          let length = this.allProfile.length
+          let index = 1
+          while (this.profiles.length < 3){
+            this.profiles.push(this.profiles[length-index])
+            index++
+          }
+        }else{
+          this.profiles.push(this.allProfile[0])
+        }
       },
-      err => console.log(err)
+      err => {}
     )
-    
+  }
+
+  split(url:any){
+    return '@'+''+url.split(' ').join('-')
+  }
+
+  getAllContents(){
+    this.service.getAllBlog().subscribe(
+      res => {
+        if (res['data']) {
+          let content:any[] = res['data']
+          if (content.length < 0) {
+            this.blogContent = []
+          }else if (content.length > 3) {
+            let length = content.length
+            let index = 1
+            while (this.blogContent.length < 4){
+              this.blogContent.push(content[length-index])
+              index++
+            }
+          }else{
+            this.blogContent.push(content[content.length - 1])
+          }
+        }
+        
+      },
+      err => {}
+    )
   }
 
   ngOnInit() {

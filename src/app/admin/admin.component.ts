@@ -53,7 +53,6 @@ export class AdminComponent implements OnInit {
   countAll(){
     this.service.countAll().subscribe(
       res => {
-        console.log(res)
         this.blog.count = res['blog']
         this.profile.count = res['profile']
         this.events.count = res['event']
@@ -61,7 +60,7 @@ export class AdminComponent implements OnInit {
         this.comment.count = res['comment']
         this.loading = false
       },
-      err => console.error(err))
+      err => {})
   }
 
   ngOnInit() {

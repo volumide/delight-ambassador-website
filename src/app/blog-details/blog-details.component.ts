@@ -38,7 +38,6 @@ export class BlogDetailsComponent implements OnInit {
 
       this.service.getBlogByTitle(title).toPromise()
       .then(res => {
-        console.log(res['data'], res['writter'])
         this.content = res['data']
         this.writter = res['writter']
         localStorage.setItem('reference', this.content.title)
@@ -47,15 +46,12 @@ export class BlogDetailsComponent implements OnInit {
         this.getCurrentblogComment(this.content.id)
       })
       .catch(err => {
-        console.log(err)
       })
     }})
   }
 
   postComment(id){
     if (isNull(this.comment) || typeof this.comment === 'undefined'){
-      console.log(this.comment)
-      console.log('comment cannot be empty')
       return
     }
     this.data.comment = this.comment
@@ -64,10 +60,9 @@ export class BlogDetailsComponent implements OnInit {
 
     this.service.postComment(this.data).toPromise()
     .then(res => {
-      console.log(res)
       this.getArticleDetails()
     })
-    .catch(err => console.log(err)
+    .catch(err => {}
     )    
   }
 
@@ -75,9 +70,8 @@ export class BlogDetailsComponent implements OnInit {
     this.service.getCommentyId(id).toPromise()
     .then(res=> {
       this.allcomment = res['data']
-      console.log(this.allcomment)
     })
-    .catch(err => console.log(err))
+    .catch(err => {})
   }
   ngOnInit() {
   }

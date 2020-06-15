@@ -12,27 +12,39 @@
 								Welcome to the official page of De-light Ambassadors Int’l, a global impact organization borne out of a strong passion for young people, especially Teenagers, Adolescents and Young Adults; to break them from the societal status-quo, and help them to discover and manifest their original essence (Purpose) to the fullest, through strategic mentorship.
 							</p>
 							
-							<p class="btn btn-success mt-3 mb-5">
-								learn more
-							</p>
 						</div>
 					</div>
 				</div>
 				
 			</div>
 		</div>
-	
+	</div>
+</div>
+
+<div class="delight-container" >
+	<div class="container my-5" *ngIf="blogContent">
+		<div class="row">
+			<div class="col-12">
+				<h3>
+					Latest Write up
+				</h3>
+			</div>
+			<div class="col-12" *ngFor="let blog of blogContent">
+				<p style="color: purple;" [routerLink]="['/blog/content', split(blog.title)]">
+					{{blog.title}}
+				</p>
+			</div>
+		</div>
 	</div>
 </div>
 
 <div class="delight-container ">
 	<div class="container-fluid">
 		<div class="row">
-
 			<div class="col-md-6 pt-5 pb-5 bg-white">
 				<div class="row pt-5 pb-5 ">
 					<div class="col-12 ">
-						<h3 class="mx-auto mb-2">our mission</h3>
+						<h3 class="mx-auto mb-2">our vision</h3>
 					</div>
 					<div class="col-12">
 						<p class="mx-auto">
@@ -58,15 +70,21 @@
 			<div class="col-12 pt-5 pb-5" *ngIf="profiles.length">
 				<h3 class="mx-auto mb-2 text-center">Leaders</h3>
 			</div>
-
 		</div>
 	</div>
 
-	<div class="container">
-		<div class="row" *ngIf="profiles.length">
+
+	<!-- //leaders profile -->
+	<div class="container" *ngIf="profiles.length">
+		<div class="row" >
 			<div class="col-md-4 mb-4" *ngFor="let image of profiles">
 				<app-imagecard [image] = 'image'></app-imagecard>
 			</div>
+		</div>
+		<div class="col-12">
+			<p class="text-right" style="color: purple; width: 100%; cursor: pointer;" [routerLink]="['/leaders/profile']">
+				Visit facillators page
+			</p>
 		</div>
 	</div>
 </div>

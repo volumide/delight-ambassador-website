@@ -26,6 +26,12 @@ import { EventsComponent } from './events/events.component';
 import { GuildlinesComponent } from './guildlines/guildlines.component';
 import { UnitsComponent } from './units/units.component';
 import { LoginComponent } from './login/login.component';
+import { WelfareunitComponent } from './welfareunit/welfareunit.component';
+import { FollowupteamComponent } from './followupteam/followupteam.component';
+import { SpecialsundayComponent } from './specialsunday/specialsunday.component';
+import { PrayerteamComponent } from './prayerteam/prayerteam.component';
+import { DatabaseteamComponent } from './databaseteam/databaseteam.component';
+import { LeadersPageComponent } from './leaders-page/leaders-page.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +54,12 @@ import { LoginComponent } from './login/login.component';
     GuildlinesComponent,
     UnitsComponent,
     LoginComponent,
+    WelfareunitComponent,
+    FollowupteamComponent,
+    SpecialsundayComponent,
+    PrayerteamComponent,
+    DatabaseteamComponent,
+    LeadersPageComponent,
   ],
 
   imports: [

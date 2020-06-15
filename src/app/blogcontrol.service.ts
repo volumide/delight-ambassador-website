@@ -11,7 +11,6 @@ export class ServiceNameService {
 })
 export class BlogcontrolService {
 
-  // url = "https://delightambassadors.com/delightapi/public/api/"
   url = "https://delightambassadors.com/delightapi/public/api/"
   
   constructor(public http: HttpClient) { }
@@ -68,6 +67,10 @@ export class BlogcontrolService {
 
   getAllLeaderProfile(){
     return this.http.get(this.shortUrl('get/leaders'))
+  }
+
+  getAllLeaders(){
+    return this.http.get(this.shortUrl('get/all/leaders'))
   }
 
   getLeaderProfileById(id:any){

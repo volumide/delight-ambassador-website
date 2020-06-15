@@ -16,6 +16,12 @@ import { EventsComponent } from './events/events.component';
 import { UnitsComponent } from './units/units.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
+import { SpecialsundayComponent } from './specialsunday/specialsunday.component';
+import { WelfareunitComponent } from './welfareunit/welfareunit.component';
+import { FollowupteamComponent } from './followupteam/followupteam.component';
+import { PrayerteamComponent } from './prayerteam/prayerteam.component';
+import { DatabaseteamComponent } from './databaseteam/databaseteam.component';
+import { LeadersPageComponent } from './leaders-page/leaders-page.component';
 
 
 const routes: Routes = [
@@ -36,6 +42,12 @@ const routes: Routes = [
   { path: 'teams', component: UnitsComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'admin/login', component: LoginComponent },
+  { path: 'special/sunday/team', component: SpecialsundayComponent },
+  { path: 'welfare/team', component: WelfareunitComponent  },
+  { path: 'followup/team', component: FollowupteamComponent  },
+  { path: 'prayer/team', component: PrayerteamComponent  },
+  { path: 'database/team', component: DatabaseteamComponent  },
+  { path: 'leaders/profile', component: LeadersPageComponent  },
 
   
 ];

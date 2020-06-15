@@ -127,12 +127,12 @@ DLA SUNDAY SPECIAL SUBTEAM
       The Sunday Special subteam is a team composed of people who love God. The team has a set of creative individuals with innovative ideas which are all for the Kingdom. The team has a couple of proficient members led by Ambassadors Addo Praise and Omosebi Omotolani.
       The Sunday Specials sessions feature the following activities: Quiz, Interviews, Rhema conversations, Spirit uproar, Debates, Talks on different aspects of life and many more. The Sunday Special team is responsible for all Sunday activities like asking questions on topics like bible and inspirational topic and there is also interview segment, debate, sharing materials like spiritual books, videos and audios as well.
       
- DLA Prayer Team
-DLA prayer team is one of the unique sub-teams of the DLA Ideation Team. The team is charged with raising young people who are fervent in the place of Prayer. We are on high alert about things going on with our spiritual growth and development. We do team up with people, praying along with them to achieve divine purposes. 
+ DLA sub Prayer Team
+
 
 Our desire is to see a generation living up to a standard that pleases God. Above all, we hope to create an atmosphere drawing people closer to the place of strength, being spiritually alert, deep in the place of prayer and having depth of intimacy and fellowship with God .
  
-DLA DATA BASE TEAM
+DLA sub DATA BASE TEAM
 Great Ambassadors of the kingdom, I sincerely count you lucky to find yourself among the body of Christ, Delight Ambassadors. 
 
 DLA has a sub unit called the DATABASE TEAM, under the Ideation team jurisdiction. This group consists of dedicated members who put in their best to see many come to Christ, by creating ads to invite non-members to join the train. We also ensure that we have the data of all members provided by the Follow-up team to check on members and celebrate their special days. As you move on aboard this train, I assure you that together, we shall fulfill purpose.

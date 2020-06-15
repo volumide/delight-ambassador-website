@@ -93,41 +93,28 @@ export class EventadminComponent implements OnInit {
     this.loading = false
   }
 
-  updateEvent(){
-    this.service.updateEvent(this.data, 2).subscribe(
-      res => console.log(res),
-      err => console.log(err)
-    )
-  }
+  
 
   getallEvents(){
     this.service.getAllEvents().subscribe(
       res => {
-        console.log(res)
           this.allevents = res['data']
           if (res['message']) {
-            console.log(res['message'])
           }
           // 
       },
-      err => console.log(err)
+      err =>{}
     )
   }
 
-  getEvent(){
-    this.service.getEventById(2).subscribe(
-      res => console.log(res),
-      err => console.log(err)
-    )
-  }
+
 
   deleteEvent(id:any){
     this.service.deleteEventById(id) .subscribe(
       res => {
-        console.log(res)
         this.getallEvents()
       },
-      err => console.log(err)
+      err => {}
     )
   }
 
@@ -144,7 +131,6 @@ export class EventadminComponent implements OnInit {
 
   manageEvents(){
     if (this.allevents) {
-      console.log(this.allevents)
     }
     this.newEvent = false
     this.events = true

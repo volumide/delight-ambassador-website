@@ -67,13 +67,11 @@ export class GallaryadminComponent implements OnInit {
   processImage(){
     this.service.uploadGalleryImage(this.data).toPromise()
     .then(res => {
-        // console.log(res)
         this.data.caption = ""
         this.data.picture = ""
         this.message = 'Upload successfull'
         this.getallGalleryImages()
     }).catch(err =>{
-      // console.log(err)
     })
     
   }
@@ -92,11 +90,9 @@ export class GallaryadminComponent implements OnInit {
   deleteImage(id:any){
     this.service.deleteImageById(id).subscribe(
       res => {
-        console.log(res)
         this.getallGalleryImages()
       },
       err => {
-        // console.log(err)
       }
     )
   }

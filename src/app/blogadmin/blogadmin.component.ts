@@ -115,7 +115,6 @@ export class BlogadminComponent implements OnInit {
     })
     .catch(err => {
       this.loading = false
-      console.log(err)
     })
       
   }
@@ -123,7 +122,6 @@ export class BlogadminComponent implements OnInit {
   processData(){
     this.service.createBlog(this.data, this.key).toPromise()
     .then(res => {
-    console.log(res['data'])
     if (res['message']) {
       this.success = true
       this.error = false
@@ -141,7 +139,6 @@ export class BlogadminComponent implements OnInit {
       this.error = true
       this.success = false
       this.message = "Unable to create blog"
-      // console.log(err)
     })
   }
 
@@ -151,39 +148,18 @@ export class BlogadminComponent implements OnInit {
       res =>{
         this.blogContent = res['data']
       } 
-      ,err => console.error(err.error)
-    ).catch(err => console.log(err))
+      ,err => {}
+    ).catch(err => {})
   }
 
-  updateContent(){
-    this.data.content = "working"
-    this.data.title = "help"
-    this.service.updateBlog(this.data, 2).subscribe(
-      res => {
-
-        console.log(res)
-      },
-      err => console.log(err.error)
-    )
-  }
-
-  getContent(){
-    this.loading = true
-    this.service.getBlogById(2).subscribe(
-      res => console.log(res),
-      err => console.error(err.error)
-    )
-    this.loading = false
-  }
 
   deleteContent(id){
     this.loading = true
     this.service.deleteBlogById(id).subscribe(
       res => {
-        console.log(res)
         this.getAllContents()
       },
-      err => console.error(err.error),
+      err => {},
     )
     this.loading = false
   }
@@ -191,12 +167,9 @@ export class BlogadminComponent implements OnInit {
   getAllComments(){
     this.service.getAllComment().subscribe(
       res => {
-        // console.log(res)
         this.allcomment = res['data']
-        // console.log
-        // (this.allcomment)
       },
-      err => console.error(err.error)
+      err => {}
     )
   }
 
@@ -205,7 +178,7 @@ export class BlogadminComponent implements OnInit {
       res => {
         this.getAllComments()
       },
-      err => console.log(err.error)
+      err => {}
     )
   }
 

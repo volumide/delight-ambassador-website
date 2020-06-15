@@ -4,16 +4,6 @@
 
 export const environment = {
   production: false,
-  config: {
-    apiKey: "AIzaSyA7cvXK8kagIXpnQKT0PLTDHv_mCLg-R6I",
-    authDomain: "delight-ambassador.firebaseapp.com",
-    databaseURL: "https://delight-ambassador.firebaseio.com",
-    projectId: "delight-ambassador",
-    storageBucket: "delight-ambassador.appspot.com",
-    messagingSenderId: "615150892325",
-    appId: "1:615150892325:web:936863e1bcacae6a9096cc",
-    measurementId: "G-EHNG12KJXH"
-  }
 };
 
 /*
