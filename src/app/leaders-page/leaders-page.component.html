@@ -7,13 +7,14 @@
 					DLA FACILITATORS
 				</h3>
 			</div> 
-			<div class="col-12">
-				<div class="row py-3" *ngFor="let data of allData">
+
+			<!-- <div class="col-12">
+				<div class="row pb-5" *ngFor="let data of allData">
 					<div class="col-md-5">
-						<div class="card-container" style="box-shadow: none;">
+						<div class="card-container">
 							<div class="rounded-0">
 								<div class="img">
-									<img [src]='data.picture' class="img-fluid" alt="">
+									<img [src]='data.picture' alt="">
 								</div>
 							</div>
 						</div>
@@ -28,7 +29,26 @@
 						</div>
 					</div>
 				</div>
+			</div> -->
+		</div>
+		<div class="row pb-5" *ngFor="let data of allData">
+			<div class="col-md-5">
+				<div class="image-container">
+					<div class="img">
+						<img src="{{data.picture}}" alt="" srcset="">
+					</div>
+				</div>
 			</div>
+			<div class="col-md-7">
+				<div class="px-3">
+					<p><strong>{{data.name}}</strong> <br>
+						<small>{{data.office}}</small>
+					</p>
+					<p [innerHTML] = 'data.about'>
+					</p>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 <app-footer></app-footer>
