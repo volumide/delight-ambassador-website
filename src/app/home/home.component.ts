@@ -60,24 +60,6 @@ export class HomeComponent implements OnInit {
         }else{
             this.blogContent.push(this.content[0])
         }
-
-        // if (!res['data']) {
-        //   this.content = []
-        //   if (this.content.length < 0) {
-        //     this.blogContent = []
-        //   }else if (this.content.length > 3) {
-        //     let length = this.content.length
-            
-        //     while (this.blogContent.length < 4){
-        //       this.blogContent.push(this.content[length-index])
-        //       index++
-        //       console.log(this.blogContent)
-        //     }
-        //   }else{
-        //     this.blogContent.push(this.content[0])
-        //   }
-        // }
-        
       },
       err => {}
     )

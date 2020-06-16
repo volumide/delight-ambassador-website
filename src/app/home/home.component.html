@@ -22,11 +22,11 @@
 </div>
 
 <div class="delight-container" >
-	<div class="container my-5" *ngIf="blogContent">
+	<div class="container my-5" *ngIf="blogContent.length">
 		<div class="row">
 			<div class="col-12">
 				<h3>
-					Latest Write up
+					Recent Article
 				</h3>
 			</div>
 			<div class="col-12" *ngFor="let blog of blogContent">
@@ -68,7 +68,7 @@
 
 			
 			<div class="col-12 pt-5 pb-5" *ngIf="profiles.length">
-				<h3 class="mx-auto mb-2 text-center">Leaders</h3>
+				<h3 class="mx-auto mb-2 text-center">Facilitators</h3>
 			</div>
 		</div>
 	</div>

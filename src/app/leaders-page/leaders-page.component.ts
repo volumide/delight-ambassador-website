@@ -18,7 +18,6 @@ export class LeadersPageComponent implements OnInit {
     this.service.getAllLeaderProfile().subscribe(
       res => {
         this.allData = res['data']
-        console.log(this.allData)
       },
       err => {
       }

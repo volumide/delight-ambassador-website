@@ -1,9 +1,12 @@
 <app-navbar></app-navbar>
-
-<div class="container mt-5">
-	<div class="row">
-		<div class="col-md-4 mb-4" *ngFor="let image of allImages">
-			<app-imagecard [image] = 'image'></app-imagecard>
+<div class="body">
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-md-4 mb-4" *ngFor="let image of allImages">
+				<app-imagecard [image] = 'image'></app-imagecard>
+			</div>
 		</div>
 	</div>
+	
+	<app-footer></app-footer>
 </div>
