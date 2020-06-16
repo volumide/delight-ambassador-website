@@ -1,11 +1,11 @@
 <app-navbar></app-navbar>
 <div class="body">
-	<div class="container">
+	<div class="container" *ngIf="!blogContent">
 		<p class="text-center py-5" style="font-size: larger;">
 			Articles
 		</p>	
 	</div>
-	<div class="container ">
+	<div class="container " *ngIf="blogContent">
 		<div class="row">
 			<div class="col-md-8 mx-auto">
 				<div class="mt-5 mb-5" *ngFor="let blog of blogContent">
