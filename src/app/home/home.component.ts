@@ -10,7 +10,8 @@ export class HomeComponent implements OnInit {
 
   allProfile :any[] = []
   profiles: any[] = []
-  blogContent: any[] 
+  blogContent: any[] = []
+  content : any[]
   constructor(public service : BlogcontrolService) {
     this.getAllProfiles()
     this.getAllContents()
@@ -25,9 +26,9 @@ export class HomeComponent implements OnInit {
           this.profiles = []
         }else if(this.allProfile.length > 3){
           let length = this.allProfile.length
-          let index = 1
+          let index = 0
           while (this.profiles.length < 3){
-            this.profiles.push(this.profiles[length-index])
+            this.profiles.push(this.allProfile[index])
             index++
           }
         }else{
@@ -43,23 +44,39 @@ export class HomeComponent implements OnInit {
   }
 
   getAllContents(){
+    let index = 0
     this.service.getAllBlog().subscribe(
       res => {
-        if (res['data']) {
-          let content:any[] = res['data']
-          if (content.length < 0) {
-            this.blogContent = []
-          }else if (content.length > 3) {
-            let length = content.length
-            let index = 1
-            while (this.blogContent.length < 4){
-              this.blogContent.push(content[length-index])
-              index++
-            }
-          }else{
-            this.blogContent.push(content[content.length - 1])
+        this.content = res['data']
+        if(!res['data']){
+          this.blogContent = []
+        }else if(this.content.length > 3){
+          let length = this.content.length
+          let index = 0
+          while (this.blogContent.length < 3){
+            this.blogContent.push(this.content[index])
+            index++
           }
+        }else{
+            this.blogContent.push(this.content[0])
         }
+
+        // if (!res['data']) {
+        //   this.content = []
+        //   if (this.content.length < 0) {
+        //     this.blogContent = []
+        //   }else if (this.content.length > 3) {
+        //     let length = this.content.length
+            
+        //     while (this.blogContent.length < 4){
+        //       this.blogContent.push(this.content[length-index])
+        //       index++
+        //       console.log(this.blogContent)
+        //     }
+        //   }else{
+        //     this.blogContent.push(this.content[0])
+        //   }
+        // }
         
       },
       err => {}
