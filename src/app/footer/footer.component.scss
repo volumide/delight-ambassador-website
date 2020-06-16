@@ -12,20 +12,13 @@ p{
 	color:  var(--text-color);
 }
 
-// .container{
-// 	display: flex;
-// 	justify-content: space-between;
-// }
-
 a{
-	color: #fff;
-	text-decoration: underline;
+	color: rgb(214, 214, 214);
+	text-decoration: none;
 }
-li{
+
+ul li{
 	color:#fff;
+	cursor: pointer;
 }
-// @media(max-width: 799px){
-// 	.container{
-// 		padding: 0;
-// 	}
-// }
+

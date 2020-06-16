@@ -1,3 +1,8 @@
+.text-color{
+	li {
+		color: rgba(122, 125, 133);
+	}	
+} 
 .links{
 	z-index: 999;
 	position: sticky;
@@ -14,10 +19,11 @@
 		li{
 			cursor: pointer;
 			padding: 3px;
-			// color: rgb(211, 11, 211);
 		}
 	}
 }
+
+
 
 
 
