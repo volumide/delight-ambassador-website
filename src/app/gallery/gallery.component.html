@@ -1,11 +1,11 @@
 <app-navbar></app-navbar>
 <div class="body">
-	<div class="container" *ngIf="!allimages">
+	<div class="container" *ngIf="!allImages">
 		<p class="text-center py-5" style="font-size: larger;">
 			Gallery
 		</p>	
 	</div>
-	<div class="container mt-5" *ngIf="allimages">
+	<div class="container mt-5" *ngIf="allImages">
 		<div class="row">
 			<div class="col-md-4 mb-4" *ngFor="let image of allImages">
 				<app-imagecard [image] = 'image'></app-imagecard>
