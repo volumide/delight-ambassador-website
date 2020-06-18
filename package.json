@@ -21,7 +21,7 @@
     "@angular/platform-server": "^9.1.9",
     "@angular/router": "~8.2.14",
     "@babel/compat-data": "^7.8.0",
-    "angular": "^1.7.9",
+    "angular": "^1.8.0",
     "bootstrap": "^4.5.0",
     "jquery": "^3.5.1",
     "ngx-quill": "^8.0.0",
