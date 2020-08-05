@@ -73,12 +73,7 @@ export class BlogadminComponent implements OnInit {
   admin = localStorage.getItem('delightStatus')
 
   constructor(public route: Router, public service : BlogcontrolService, public upload: Upload ) { 
-    if(!this.key){
-      this.route.navigate(['admin/login'], {replaceUrl: true})
-      return
-    }
-    this.getAllContents()
-    this.getAllComments()
+
   }
 
 
@@ -203,6 +198,12 @@ export class BlogadminComponent implements OnInit {
 
   
   ngOnInit() {
+    if(!this.key){
+      this.route.navigate(['admin/login'], {replaceUrl: true})
+      return
+    }
+    this.getAllContents()
+    this.getAllComments()
   }
 
 }

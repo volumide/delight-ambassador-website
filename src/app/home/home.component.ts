@@ -13,8 +13,7 @@ export class HomeComponent implements OnInit {
   blogContent: any[] = []
   content : any[]
   constructor(public service : BlogcontrolService) {
-    this.getAllProfiles()
-    this.getAllContents()
+
    }
 
   getAllProfiles(){
@@ -51,6 +50,7 @@ export class HomeComponent implements OnInit {
         if(!res['data']){
           this.blogContent = []
         }else if(this.content.length > 3){
+          this.content.sort((a,b)=> b.id - a.id)
           let length = this.content.length
           let index = 0
           while (this.blogContent.length < 3){
@@ -66,6 +66,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getAllProfiles()
+    this.getAllContents()
   }
 
 }

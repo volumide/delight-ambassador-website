@@ -27,16 +27,14 @@ export class GallaryadminComponent implements OnInit {
   key = localStorage.getItem('delightAccessKey')
   admin = localStorage.getItem('delightStatus')
 
-  constructor( public route: Router, public service : BlogcontrolService, public upload: Upload) {
+  constructor( public route: Router, public service : BlogcontrolService, public upload: Upload) {}
 
+  ngOnInit() {
     if(!this.key){
       this.route.navigate(['admin/login'], {replaceUrl: true})
       return
     }
     this.getallGalleryImages()
-   }
-
-  ngOnInit() {
   }
 
   imageUpload(event:any){

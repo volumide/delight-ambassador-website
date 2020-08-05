@@ -11,7 +11,7 @@ export class LeadersPageComponent implements OnInit {
   allData: object 
 
   constructor(public service : BlogcontrolService) { 
-    this.getPublicProfile()
+    
   }
 
   getPublicProfile(){
@@ -25,6 +25,7 @@ export class LeadersPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getPublicProfile()
   }
 
 }

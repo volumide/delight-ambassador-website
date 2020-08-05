@@ -12,7 +12,7 @@ export class ServiceNameService {
 export class BlogcontrolService {
 
   url = "https://delightambassadors.com/delightapi/public/api/"
-  
+  // http://delgithapi.delightambassadors.com/
   constructor(public http: HttpClient) { }
 
   //urlshortner

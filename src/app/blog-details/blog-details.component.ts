@@ -27,9 +27,7 @@ export class BlogDetailsComponent implements OnInit {
   allcomment
 
   constructor(public router: ActivatedRoute, public service : BlogcontrolService) { 
-   this.getArticleDetails()
-   this.data.reference = localStorage.getItem('reference')
-   localStorage.removeItem('refernce')
+
   }
 
   getArticleDetails(){
@@ -76,6 +74,9 @@ export class BlogDetailsComponent implements OnInit {
     .catch(err => {})
   }
   ngOnInit() {
+    this.getArticleDetails()
+   this.data.reference = localStorage.getItem('reference')
+   localStorage.removeItem('refernce')
   }
 
 }

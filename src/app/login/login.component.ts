@@ -20,13 +20,14 @@ export class LoginComponent implements OnInit {
   key = localStorage.getItem('delightAccessKey');
   status = localStorage.getItem('delightStatus');
   constructor( public route: Router, public servicce: BlogcontrolService ) {
-    if(this.key){
-      this.route.navigate(['admin'], {replaceUrl: true})
-    }
+
    }
 
 
   ngOnInit() {
+    if(this.key){
+      this.route.navigate(['admin'], {replaceUrl: true})
+    }
   }
 
   showAdmin(){

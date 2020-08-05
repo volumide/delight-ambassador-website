@@ -43,11 +43,7 @@ export class AdminComponent implements OnInit {
   admin:any = ''
   key = localStorage.getItem('delightAccessKey');
   constructor(public route: Router, public service: BlogcontrolService) { 
-    if(!this.key){
-      this.route.navigate(['admin/login'], {replaceUrl: true})
-      return
-    }
-    this.countAll()
+
   }
 
   countAll(){
@@ -64,6 +60,11 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(!this.key){
+      this.route.navigate(['admin/login'], {replaceUrl: true})
+      return
+    }
+    this.countAll()
   }
 
   logout(){

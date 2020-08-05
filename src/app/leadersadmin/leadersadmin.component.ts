@@ -36,11 +36,7 @@ export class LeadersadminComponent implements OnInit {
   profiles: any
 
   constructor(public route: Router, public service : BlogcontrolService, public upload: Upload) { 
-    if(!this.key){
-      this.route.navigate(['admin/login'], {replaceUrl: true})
-      return
-    }
-    this.getAllProfiles()
+
   }
 
   imageUpload(event:any){
@@ -168,6 +164,11 @@ export class LeadersadminComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(!this.key){
+      this.route.navigate(['admin/login'], {replaceUrl: true})
+      return
+    }
+    this.getAllProfiles()
   }
 
 }

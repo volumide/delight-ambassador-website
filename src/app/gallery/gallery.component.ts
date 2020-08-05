@@ -9,7 +9,7 @@ import { BlogcontrolService } from '../blogcontrol.service';
 export class GalleryComponent implements OnInit {
   allImages:object
   constructor( private service: BlogcontrolService) {
-    this.getAllImages()
+    
   }
 
   getAllImages(){
@@ -19,6 +19,7 @@ export class GalleryComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getAllImages()
   }
 
 
